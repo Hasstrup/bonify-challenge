@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "eslint-config-airbnb": "^17.1.0",
+    "react-native-navigation": "^2.13.1"
+  }
+}
