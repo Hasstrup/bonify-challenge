@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import Map from '../components/map';
+import Map from '../components/Map';
 
 class MapContainer extends Component {
     render() {

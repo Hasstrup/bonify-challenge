@@ -1,5 +1,7 @@
-import MapContainer from './mapContainer';
+import MapContainer from './MapContainer';
+import ResultsContextContainer from './ResultsContextContainer'
 
 export {
-    MapContainer
+    MapContainer,
+    ResultsContextContainer
 }

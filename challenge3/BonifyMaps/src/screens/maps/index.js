@@ -1,22 +1,42 @@
 import React, { Component } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
-import { withNavigatorProp } from 'src/navigation/actions';
-import { MapContainer } from  'src/screens/maps/containers';
-
+import { setNavigatorProp } from "src/navigation/actions";
+import { MapContainer } from "src/screens/maps/containers";
 
 /**
- * 
- * 
+ *
+ *
  * @class MapsIndexView
  * @extends {Component}
  * @desc renders the map from which users can select videos on the map
- * 
+ *
  */
-class MapsIndexView extends Component {
- 
-  handleNavigation = () => {
-    this.props.navigator.push({ component: { name: 'VideosIndexScreen' } })
+export class MapsIndexScreen extends Component {
+  
+  constructor(props) {
+    super(props);
+    const { componentId } = this.props;
+    this.navigator = setNavigatorProp(componentId);
   }
+  
+  /**
+   * 
+   * 
+   * @static
+   * @param {any} passProps 
+   * @returns {object} the navigation options for the class
+   * @desc set of navigation options that determine the layout of the code
+   * @memberOf MapsIndexScreen
+   */
+  static options () {
+    return {
+      topBar: {
+        visible: false,
+        drawBehind: true
+      }
+    };
+  }
+
   render() {
     return (
       <View style={{ flex: 1, paddingTop: 50 }}>
@@ -25,6 +45,3 @@ class MapsIndexView extends Component {
     );
   }
 }
-
-
-export const MapsIndexScreen = withNavigatorProp(MapsIndexView);

@@ -9,6 +9,7 @@
   "dependencies": {
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
+    "prop-types": "^15.7.2",
     "react": "16.8.3",
     "react-native": "0.59.1",
     "react-native-maps": "^0.23.0",
