@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { withNavigatorProp } from 'src/navigation/actions';
+import { MapContainer } from  'src/screens/maps/containers';
 
 
 /**
@@ -19,9 +20,7 @@ class MapsIndexView extends Component {
   render() {
     return (
       <View style={{ flex: 1, paddingTop: 50 }}>
-        <TouchableOpacity style={{ height: 100, width: 100 }} onPress={this.handleNavigation}> 
-          <Text>Hello from Maps Index Screen</Text>
-        </TouchableOpacity>
+        <MapContainer />
       </View>
     );
   }
