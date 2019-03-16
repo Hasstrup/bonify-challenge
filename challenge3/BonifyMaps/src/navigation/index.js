@@ -1,10 +1,9 @@
 import { Navigation } from "react-native-navigation";
 import * as ApplicationScreens from "../screens/registry";
 
-
 /**
  * @name registerScreens
- * @desc registers all the screens per the specification in the 
+ * @desc registers all the screens per the specification in the
  * RNN docs
  * @returns {null}
  */
@@ -16,16 +15,17 @@ const registerScreens = () => {
 
 /**
  * @name navigationStackFromScreens
- * @desc takes all the screens from the registry 
+ * @desc takes all the screens from the registry
  * and yields the navigation stack for the application
  * @returns {object}
  */
-const navigationStackFromScreens = () => {
-  return Object.keys(ApplicationScreens).reduce((iterator, componentName) => {
+const navigationStackFromScreens = (screens, defaultOptions = {}) => {
+  return Object.keys(screens).reduce((iterator, componentName) => {
     // We could add other properties for the screens here
     const component = { name: componentName };
     const { children } = iterator;
-    iterator.children = [...(children || []), { component }];
+    iterator.children = [{ component }, ...(children || [])];
+    return iterator;
   }, {});
 };
 
@@ -40,7 +40,7 @@ export const initializeApplication = () => {
   Navigation.events().registerAppLaunchedListener(() => {
     Navigation.setRoot({
       root: {
-        stack: { ...navigationStackFromScreens() }
+        stack: { ...navigationStackFromScreens(ApplicationScreens) }
       }
     });
   });
