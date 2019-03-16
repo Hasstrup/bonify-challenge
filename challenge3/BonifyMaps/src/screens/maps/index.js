@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View } from "react-native";
 import { setNavigatorProp } from "src/navigation/actions";
-import { MapContainer } from "src/screens/maps/containers";
+import { MapContainer, ResultsContextContainer } from "src/screens/maps/containers";
 
 /**
  *
@@ -39,8 +39,9 @@ export class MapsIndexScreen extends Component {
 
   render() {
     return (
-      <View style={{ flex: 1, paddingTop: 50 }}>
+      <View style={{ flex: 1, position: 'relative' }}>
         <MapContainer />
+        <ResultsContextContainer />
       </View>
     );
   }

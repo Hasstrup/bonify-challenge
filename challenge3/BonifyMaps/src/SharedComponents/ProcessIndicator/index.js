@@ -17,7 +17,7 @@ export const ProcessIndicator = ({ indicatorSize }) => (
     </View>
 )
 
-ProcessIndicator.PropTypes = {
+ProcessIndicator.propTypes = {
     indicatorSize: PropTypes.number
 }
 

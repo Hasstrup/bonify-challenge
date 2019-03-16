@@ -1,6 +1,6 @@
 import React from "react";
 import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
-import styles from '../styles/map';
+import styles from './Styles/map';
 
 export default props => {
   return (

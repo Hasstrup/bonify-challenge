@@ -36,7 +36,7 @@ export const Button = ({
   </TouchableOpacity>
 );
 
-Button.PropTypes = {
+Button.propTypes = {
   buttonText: PropTypes.string.isRequired,
   handlePress: PropTypes.func.isRequired,
   buttonContainerStyle: PropTypes.object,
