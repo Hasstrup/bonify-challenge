@@ -1,33 +1,38 @@
 import React, { useState, useEffect } from "react";
-import { FlatList } from "react-native";
+import { FlatList, View } from "react-native";
 import PropTypes from "prop-types";
 import { SingleVideoComponent, PreviewAddress } from "../Components/";
-
+import { VideoListContainerStyle as styles } from "../Styles";
 
 /**
- * 
+ *
  * @name VideoList
  * @desc data logic for interacting the Youtube APi
- * @param {any} props 
- * @returns 
+ * @param {any} props
+ * @returns
  */
 const VideoListContainer = props => {
-  const { data } = props;
+  const { videosList } = props;
+  const keyExtractor = (item, index) => `${item}`;
   return (
-    <View> 
-      <FlatList data={data} renderItem={SingleVideoComponent} />
+    <View style={styles.topContainer}>
+      <FlatList
+        keyExtractor={keyExtractor}
+        data={videosList}
+        renderItem={SingleVideoComponent}
+      />
       <PreviewAddress />
     </View>
-
   );
 };
 
 VideoListContainer.propTypes = {
-  data: PropTypes.array
+  videosList: PropTypes.array,
+  navigator: PropTypes.func.isRequired
 };
 
 VideoListContainer.defaultProps = {
-  data: []
+  data: [1, 2]
 };
 
 export default VideoListContainer;

@@ -1,12 +1,35 @@
-import React, { Component } from "react";
-import { View, Text } from "react-native";
+import React from "react";
+import { View } from "react-native";
+import { setNavigatorProp, setNavigationOptions } from "src/navigation/actions";
+import VideoListContainer from "./Containers/VideoListContainer";
+import { BLACK } from "src/Constants/";
 
-export class VideosIndexScreen extends Component {
-  render() {
-    return (
-      <View>
-        <Text> Hello from Videos Index Screen</Text>
-      </View>
-    );
-  }
-}
+/**
+ *
+ * @name VideosIndexScreen
+ * @desc Parent Component for the View Videos Screen
+ * @param {any} props
+ * @returns
+ */
+export const VideosIndexScreen = props => {
+  const navigationOptions = {
+    topBar: {
+      title: {
+        text: 'Videos'
+      },  
+    }
+  };
+
+  const { componentId } = props;
+  
+  setNavigationOptions(componentId, navigationOptions)
+  const navigator = setNavigatorProp(props.componentId);
+
+  return (
+    <View style={{ flex: 1 }}>
+      <VideoListContainer navigator={navigator} />
+    </View>
+  );
+};
+
+VideosIndexScreen.options = () => ({});

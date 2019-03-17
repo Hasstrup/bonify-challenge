@@ -49,19 +49,31 @@ export const SingleVideoComponentStyle = {
   }
 };
 
-export const VideoListContainerStyle = {};
+export const VideoListContainerStyle = {
+  topContainer: {
+      flex: 1,
+      position: 'relative'
+  },
+};
 
+/**
+ * @name PreviewAddressStyle
+ * @desc Style for the preview address bar
+ */
 export const PreviewAddressStyle = {
   topContainer: {
-    height: "10%",
+    height: "5%",
     width: "80%",
     alignSelf: "center",
     position: "absolute",
     bottom: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
     backgroundColor: BLACK
   },
   textContent: {
-    fontSize: 14,
+    fontSize: 16,
+    fontWeight: '500',
     width: "60%",
     color: "white"
   }
