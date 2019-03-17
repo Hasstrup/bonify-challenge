@@ -1,21 +1,30 @@
 import { Dimensions } from "react-native";
 
-const DATA_FETCHING = 'DATA_FETCHING'
-const VIDEO_RESULTS_FETCHED = 'VIDEO_RESULTS_FETCHED'
-const NEW_USER_CONTEXT = 'NEW_USER_CONTEXT'
-const UNRESOLVED_COORDINATES_CONTEXT = 'UNRESOLVED_COORDS'
-const GRAY_COLOR = '#E5E7E9'
-const DARKER_GRAY = '#797D7F'
-const BLACK = '#29292A'
+const DATA_FETCHING = "DATA_FETCHING";
+const VIDEO_RESULTS_FETCHED = "VIDEO_RESULTS_FETCHED";
+const NEW_USER_CONTEXT = "NEW_USER_CONTEXT";
+const UNRESOLVED_COORDINATES_CONTEXT = "UNRESOLVED_COORDS";
+const GRAY_COLOR = "#E5E7E9";
+const DARKER_GRAY = "#797D7F";
+const BLACK = "#29292A";
+const INVALID_INPUT_MESSAGE = "Fill in an address please :)";
+const COORDS_RETRIEVE_FAILURE_MESSAGE =
+  "Uh oh something wen't wrong fetching that address :(";
+const GOOGLE_MAPS_URL = "https://maps.googleapis.com/maps/api/geocode/json";
 
-export const { height: DEVICE_HEIGHT, width: DEVICE_WIDTH } = Dimensions.get('window')
+export const { height: DEVICE_HEIGHT, width: DEVICE_WIDTH } = Dimensions.get(
+  "window"
+);
 
 export {
-    DATA_FETCHING,
-    VIDEO_RESULTS_FETCHED,
-    NEW_USER_CONTEXT,
-    UNRESOLVED_COORDINATES_CONTEXT,
-    GRAY_COLOR,
-    DARKER_GRAY,
-    BLACK
-}
+  DATA_FETCHING,
+  VIDEO_RESULTS_FETCHED,
+  NEW_USER_CONTEXT,
+  UNRESOLVED_COORDINATES_CONTEXT,
+  GRAY_COLOR,
+  DARKER_GRAY,
+  BLACK,
+  INVALID_INPUT_MESSAGE,
+  COORDS_RETRIEVE_FAILURE_MESSAGE,
+  GOOGLE_MAPS_URL
+};

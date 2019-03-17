@@ -1,20 +1,32 @@
 import React from "react";
 import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
+import PropTypes from 'prop-types';
 import styles from './Styles/map';
+import customMapStyle from './Styles/CustomMapStyle.json'
+const Map = props => {
+  const { 
+    usersRegion,
+    region
+  } = props;
 
-export default props => {
+ 
   return (
     <MapView
       provider={PROVIDER_GOOGLE}
       style={styles.map}
-      initialRegion={{
-        latitude: 37.78825,
-        longitude: -122.4324,
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421
-      }}
+      customMapStyle={customMapStyle}
+      initialRegion={usersRegion}
+      region={region || usersRegion}
+      showsUserLocation
     />
   );
 };
+
+Map.propTypes = {
+  region: PropTypes.object,
+  initialRegion: PropTypes.object
+}
+
+export default Map
 
 
