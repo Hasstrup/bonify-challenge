@@ -65,14 +65,14 @@ const yieldAddressAndCoordinatesFromResponse = response => {
   // we'll display the first result to display to the user, to fetch videos from
   const [closestResult] = data.results;
   const {
-    formated_address,
+    formatted_address,
     geometry: {
       location: { lat, lng }
     }
   } = closestResult;
   return {
-    address: formated_address,
+    address: formatted_address,
     latLng: `${lat},${lng}`,
-    mapData: regionFromLatLong({ latitude: lat, longitude: lng, accuracy: 6 })
+    region: regionFromLatLong({ latitude: lat, longitude: lng, accuracy: 120 })
   };
 };

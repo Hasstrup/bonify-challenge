@@ -12,11 +12,7 @@ import * as MapActions from "src/Actions";
  * @returns
  */
 const MapContainer = props => {
-  const [usersLocation, setUsersLocation] = useState({});
-  useEffect(() => {
-    MapActions.getUsersLocation(setUsersLocation);
-  }, []);
-
+  const { region, handleAddressChange, handleErrorCallback, indicateProcess}= props;
   /**
    *
    * @name onLocationEventChange
@@ -26,7 +22,7 @@ const MapContainer = props => {
    * @param {any} coords coords containing latitude and longitude
    */
   onLocationEventChange = coords => {
-    const { handleAddressChange, handleErrorCallback } = props;
+    indicateProcess()
     MapActions.handleLocationChange(
       coords,
       handleAddressChange,
@@ -34,17 +30,14 @@ const MapContainer = props => {
     );
   };
 
-  return (
-    <Map
-      usersRegion={usersLocation}
-      handleLocationChange={onLocationEventChange}
-    />
-  );
+  return <Map region={region} handleLocationChange={onLocationEventChange} />;
 };
 
 MapContainer.propTypes = {
+  region: PropTypes.object.isRequired,
   handleAddressChange: PropTypes.func.isRequired,
-  handleErrorCallback: PropTypes.func.isRequired
+  handleErrorCallback: PropTypes.func.isRequired,
+  indicateProcess: PropTypes.func
 };
 
 MapContainer.defaultProps = {

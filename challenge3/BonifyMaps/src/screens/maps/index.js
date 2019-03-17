@@ -1,49 +1,52 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import { View } from "react-native";
 import { setNavigatorProp } from "src/navigation/actions";
-import { MapContainer, ResultsContextContainer, SearchContainer } from "src/screens/maps/containers";
+import * as MapActions from "src/Actions";
+import {
+  MapContainer,
+  ResultsContextContainer,
+  SearchContainer
+} from "src/screens/maps/containers";
+
+export const MapsIndexScreen = props => {
+  const navigator = setNavigatorProp(props.componentId);
+  const [region, setRegion] = useState({});
+  const [processing, setProcessing] = useState(false);
+
+  useEffect(() => {
+    MapActions.getUsersLocation(setRegion);
+  }, []);
+
+  const handleAddressChange = ({ region: newRegion, latLng, address }) => {
+    console.log(address)
+    setRegion(newRegion);
+  };
+
+  return (
+    <View style={{ flex: 1, position: "relative" }}>
+      <MapContainer
+        region={region}
+        indicateProcess={() => setProcessing(true)}
+        handleAddressChange={handleAddressChange}
+      />
+      <ResultsContextContainer processing={processing} navigator={navigator} />
+      <SearchContainer />
+    </View>
+  );
+};
 
 /**
  *
  *
- * @class MapsIndexView
- * @extends {Component}
- * @desc renders the map from which users can select videos on the map
- *
+ * @static
+ * @param {any} passProps
+ * @returns {object} the navigation options for the class
+ * @desc set of navigation options that determine the layout of the code
+ * @memberOf MapsIndexScreen
  */
-export class MapsIndexScreen extends Component {
-  
-  constructor(props) {
-    super(props);
-    const { componentId } = this.props;
-    this.navigator = setNavigatorProp(componentId);
+MapsIndexScreen.options = () => ({
+  topBar: {
+    visible: false,
+    drawBehind: true
   }
-  
-  /**
-   * 
-   * 
-   * @static
-   * @param {any} passProps 
-   * @returns {object} the navigation options for the class
-   * @desc set of navigation options that determine the layout of the code
-   * @memberOf MapsIndexScreen
-   */
-  static options () {
-    return {
-      topBar: {
-        visible: false,
-        drawBehind: true
-      }
-    };
-  }
-
-  render() {
-    return (
-      <View style={{ flex: 1, position: 'relative' }}>
-        <MapContainer />
-        <ResultsContextContainer />
-        <SearchContainer />
-      </View>
-    );
-  }
-}
+});
