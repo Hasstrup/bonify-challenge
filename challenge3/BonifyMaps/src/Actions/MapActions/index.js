@@ -1,4 +1,4 @@
-import * as MapServices from "src/services/GoogleMapsService";
+import * as MapServices from "src/services/GoogleMapService";
 /**
  *
  * @name fetchUsersCurrentLocation
@@ -11,7 +11,12 @@ export const fetchUsersCurrentLocation = () => {
   return new Promise((resolve, reject) => {
     navigator.geolocation.getCurrentPosition(
       ({ coords: { latitude, longitude, accuracy } }) => {
-        resolve(regionFromLatLong({ latitude, longitude, accuracy }));
+        resolve(
+          regionFromLatLong(
+            { latitude, longitude, accuracy },
+            { latitudeDelta: 0.0922, longitudeDelta: 0.0421 }
+          )
+        );
       },
       error => reject(error)
     );
@@ -27,7 +32,10 @@ export const fetchUsersCurrentLocation = () => {
  * @param {any} { latitude, longitude, accuracy }
  * @returns
  */
-const regionFromLatLong = ({ latitude, longitude, accuracy }) => {
+export const regionFromLatLong = (
+  { latitude, longitude, accuracy },
+  locationMeta = {}
+) => {
   const degreeOfLatitudeToMeters = 111.32 * 1000;
   const latitudeDelta = accuracy / degreeOfLatitudeToMeters;
   const longitudeDelta =
@@ -37,7 +45,8 @@ const regionFromLatLong = ({ latitude, longitude, accuracy }) => {
     latitude,
     longitude,
     latitudeDelta,
-    longitudeDelta
+    longitudeDelta,
+    ...locationMeta
   };
 };
 
@@ -48,7 +57,7 @@ const regionFromLatLong = ({ latitude, longitude, accuracy }) => {
  * @param {any} updateState
  */
 export const getUsersLocation = async updateState => {
-  const coords = await MapActions.fetchUsersCurrentLocation();
+  const coords = await fetchUsersCurrentLocation();
   updateState(coords);
 };
 
@@ -60,9 +69,13 @@ export const getUsersLocation = async updateState => {
  * @param {object} coords
  * @param {func} callback
  */
-export const handleLocationChange = async (coords, successCallback, errorCallback) => {
+export const handleLocationChange = async (
+  coords,
+  successCallback,
+  errorCallback
+) => {
   try {
-    const latLng = coords.hasOwnPerty("coordinate")  ? coords.coordinate : `${coords.latitude}, ${coords.longitude}`;
+    const latLng = `${coords.latitude},${coords.longitude}`;
     successCallback(await MapServices.AddressFromCoordinates(latLng));
   } catch (err) {
     errorCallback(err);

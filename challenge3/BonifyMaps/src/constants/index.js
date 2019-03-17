@@ -11,6 +11,7 @@ const INVALID_INPUT_MESSAGE = "Fill in an address please :)";
 const COORDS_RETRIEVE_FAILURE_MESSAGE =
   "Uh oh something wen't wrong fetching that address :(";
 const GOOGLE_MAPS_URL = "https://maps.googleapis.com/maps/api/geocode/json";
+export * from '../../env.config.js'
 
 export const { height: DEVICE_HEIGHT, width: DEVICE_WIDTH } = Dimensions.get(
   "window"
@@ -28,3 +29,4 @@ export {
   COORDS_RETRIEVE_FAILURE_MESSAGE,
   GOOGLE_MAPS_URL
 };
+
