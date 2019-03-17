@@ -81,3 +81,11 @@ export const handleLocationChange = async (
     errorCallback(err);
   }
 };
+
+export const handleAddressChange = async (searchText, successCallback, errorCallback) => {
+  try {
+    successCallback(await MapServices.CoordinatesFromAddress(searchText))
+  } catch(err) {
+    errorCallback(err);
+  }
+}

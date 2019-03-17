@@ -22,7 +22,8 @@ export const MapsIndexScreen = props => {
     region: {},
     address: "Fetching your location ...",
     latLng: "",
-    processing: false
+    processing: false,
+    errors: false,
   };
 
   const [state, setState] = useState(initialState);
@@ -39,7 +40,8 @@ export const MapsIndexScreen = props => {
       region,
       latLng,
       address,
-      processing: false
+      processing: false,
+      errors: false
     });
   };
 
@@ -49,13 +51,18 @@ export const MapsIndexScreen = props => {
         region={state.region}
         indicateProcess={() => setState({ ...state, processing: true })}
         handleAddressChange={handleAddressChange}
+        handleErrorCallback={(err) => setState({ ...state, errors: true, address: err.message })}
       />
       <ResultsContextContainer
         processing={state.processing}
+        errors={state.errors}
         navigator={navigator}
         address={state.address}
       />
-      <SearchContainer />
+      <SearchContainer 
+        handleAddressChange={handleAddressChange}
+        handleErrorCallback={(err) => setState({ ...state, errors: true, address: err.message })}
+      />
     </View>
   );
 };

@@ -22,10 +22,15 @@ export const CoordinatesFromAddress = async address => {
     const url = `${GOOGLE_MAPS_URL}?key=${API_KEY}&address=${prepareAddress(
       address
     )}`;
-    const result = await axios(url);
-    return result;
+    const response = await axios(url);
+    checkEmptyResults(response);
+    return yieldAddressAndCoordinatesFromResponse(response);
   } catch (err) {
-    throw new Error(COORDS_RETRIEVE_FAILURE_MESSAGE);
+    const message =
+      err.message === INVALID_INPUT_MESSAGE
+        ? err.message
+        : COORDS_RETRIEVE_FAILURE_MESSAGE;
+    throw new Error(message);
   }
 };
 
@@ -41,15 +46,19 @@ export const CoordinatesFromAddress = async address => {
 export const AddressFromCoordinates = async latLng => {
   try {
     const url = `${GOOGLE_MAPS_URL}?key=${API_KEY}&latlng=${latLng}`;
-    const result = await axios(url);
-    return yieldAddressAndCoordinatesFromResponse(result);
+    const response = await axios(url);
+    checkEmptyResults(response);
+    return yieldAddressAndCoordinatesFromResponse(response);
   } catch (e) {
-    console.log(err); // remove this before final build
     throw new Error(COORDS_RETRIEVE_FAILURE_MESSAGE);
   }
 };
 
 const prepareAddress = address => address.replace(/ /, "+");
+
+const checkEmptyResults = response => {
+  if (!response.data.results.length) throw new Error();
+};
 
 /**
  *
