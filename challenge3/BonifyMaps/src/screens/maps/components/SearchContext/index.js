@@ -20,7 +20,6 @@ const SearchContextView = props => {
         style={styles.TextInputStyle}
         onChangeText={onTextInputChange}
         placeholder={"Enter an address ... :)"}
-    
       />
       <TouchableOpacity
         style={styles.IconContainerStyle}

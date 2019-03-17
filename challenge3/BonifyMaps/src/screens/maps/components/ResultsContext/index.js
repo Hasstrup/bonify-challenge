@@ -24,7 +24,13 @@ const ResultsContextView = props => {
     const { currentUIContext } = props;
     switch (currentUIContext) {
       case VIDEO_RESULTS_FETCHED:
-        return <VideoPreviewContext address={address} />;
+        return (
+          <VideoPreviewContext
+            address={address}
+            handleButtonPress={handleButtonPress}
+            processing={processing}
+          />
+        );
       case NEW_USER_CONTEXT:
         return <NewUserContext />;
       default:

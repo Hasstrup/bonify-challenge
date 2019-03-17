@@ -18,7 +18,7 @@ const VideoPreviewContext = props => (
       <Text style={styles.contentDescription}> We found 25 Videos</Text>
     </View>
     <View style={styles.buttonContainer}>
-      <Button buttonText="View" />
+      <Button buttonText="View"  handlePress={props.handleButtonPress} />
     </View>
   </View>
 );
