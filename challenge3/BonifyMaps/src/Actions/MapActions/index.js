@@ -1,3 +1,4 @@
+import * as MapServices from "src/services/GoogleMapsService";
 /**
  *
  * @name fetchUsersCurrentLocation
@@ -38,4 +39,32 @@ const regionFromLatLong = ({ latitude, longitude, accuracy }) => {
     latitudeDelta,
     longitudeDelta
   };
+};
+
+/**
+ *
+ * @name getUsersLocation
+ * @desc initial hook that gets a users locationn
+ * @param {any} updateState
+ */
+export const getUsersLocation = async updateState => {
+  const coords = await MapActions.fetchUsersCurrentLocation();
+  updateState(coords);
+};
+
+/**
+ *
+ * @name handleLocationTap
+ * @desc listens for changes in user
+ * interaction with the map
+ * @param {object} coords
+ * @param {func} callback
+ */
+export const handleLocationChange = async (coords, successCallback, errorCallback) => {
+  try {
+    const latLng = coords.hasOwnPerty("coordinate")  ? coords.coordinate : `${coords.latitude}, ${coords.longitude}`;
+    successCallback(await MapServices.AddressFromCoordinates(latLng));
+  } catch (err) {
+    errorCallback(err);
+  }
 };

@@ -1,20 +1,46 @@
 import React, { useState, useEffect } from "react";
 import Map from "../components/Map/Map";
-import * as Actions from "src/Actions";
+import * as MapActions from "src/Actions";
 
+/**
+ *
+ * @name MapContainer
+ * @desc handles the data and manipulation logic
+ * for map interactions
+ * @param {any} props
+ * @returns
+ */
 const MapContainer = props => {
-  // we'll feed the user's current location to the maps at first
   const [usersLocation, setUsersLocation] = useState({});
-
   useEffect(() => {
-    const getUsersLocation = async () => {
-      const coords = await Actions.fetchUsersCurrentLocation();
-      setUsersLocation(coords);
-    };
-    getUsersLocation();
+    MapActions.getUsersLocation(setUsersLocation);
   }, []);
 
-  return <Map initialRegion={usersLocation} />;
+  onLocationEventChange = coords => {
+    const { handleAddressChange, handleErrorCallback } = props;
+    MapActions.handleLocationChange(
+      coords,
+      handleAddressChange,
+      handleErrorCallback
+    );
+  };
+
+  return (
+    <Map
+      initialRegion={usersLocation}
+      handleLocationChange={onLocationEventChange}
+    />
+  );
+};
+
+MapContainer.propTypes = {
+  handleAddressChange: PropTypes.func.isRequired,
+  handleErrorCallback: PropTypes.func.isRequired
+};
+
+MapContainer.defaultProps = {
+  handleAddressChange: (r) => { console.log(r) },
+  handleErrorCallback: () => {}
 };
 
 export default MapContainer;
