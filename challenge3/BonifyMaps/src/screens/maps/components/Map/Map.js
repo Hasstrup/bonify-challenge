@@ -5,6 +5,13 @@ import styles from "./Styles/map";
 import customMapStyle from "./Styles/CustomMapStyle.json";
 
 
+/**
+ * 
+ * @name Map
+ * @desc Map Component houses the MapView from react-native-maps
+ * @param {any} props takes in handleLocationChange - to be called after every interaction with the maps
+ * @returns {function} the Map component
+ */
 const Map = props => {
   const { region, handleLocationChange } = props;
   return (

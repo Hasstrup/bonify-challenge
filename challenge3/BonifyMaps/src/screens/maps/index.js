@@ -8,28 +8,53 @@ import {
   SearchContainer
 } from "src/screens/maps/containers";
 
+/**
+ * 
+ * @name MapsIndexScreen
+ * @desc Component rendered for on the index screen.
+ * @param {any} props 
+ * @returns {func} React Component 
+ */
 export const MapsIndexScreen = props => {
   const navigator = setNavigatorProp(props.componentId);
-  const [region, setRegion] = useState({});
-  const [processing, setProcessing] = useState(false);
+
+  const initialState = {
+    region: {},
+    address: "Fetching your location ...",
+    latLng: "",
+    processing: false
+  };
+
+  const [state, setState] = useState(initialState);
 
   useEffect(() => {
-    MapActions.getUsersLocation(setRegion);
+    MapActions.getUsersLocation(region => {
+      setState({ ...state, region });
+    });
   }, []);
 
-  const handleAddressChange = ({ region: newRegion, latLng, address }) => {
-    console.log(address)
-    setRegion(newRegion);
+  const handleAddressChange = ({ region, latLng, address }) => {
+    setState({
+      ...state,
+      region,
+      latLng,
+      address,
+      processing: false
+    });
   };
 
   return (
     <View style={{ flex: 1, position: "relative" }}>
       <MapContainer
-        region={region}
-        indicateProcess={() => setProcessing(true)}
+        region={state.region}
+        indicateProcess={() => setState({ ...state, processing: true })}
         handleAddressChange={handleAddressChange}
       />
-      <ResultsContextContainer processing={processing} navigator={navigator} />
+      <ResultsContextContainer
+        processing={state.processing}
+        navigator={navigator}
+        address={state.address}
+      />
       <SearchContainer />
     </View>
   );

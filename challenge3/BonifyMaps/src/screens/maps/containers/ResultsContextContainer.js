@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { View, Text } from 'react-native';
+import React from 'react';
+import PropTypes from 'prop-types';
 import ResultsContextView from '../components/ResultsContext/';
 import {
     DATA_FETCHING,
@@ -9,23 +9,26 @@ import {
   } from "src/Constants";
 
 
+
 /**
- * 
- * 
+ *  
  * @export
- * @class ResultsContextContainer
+ * @name ResultsContextContainer
  * @desc container housing all the methods necessary for interacting 
  *  with the results from the user's interaction with google maps. It gives 
- * @extends {Component}
+ * 
  */
-export default class ResultsContextContainer extends Component {
-    render() {
-        // TODO: this should take the current context 
-        // and a bunch of navigation options
-        return (
-            <ResultsContextView 
-                currentUIContext={VIDEO_RESULTS_FETCHED}
-            />
-        )
-    }
+const ResultsContextContainer = (props) => {
+    return (
+        <ResultsContextView 
+            currentUIContext={VIDEO_RESULTS_FETCHED}
+            address={props.address}
+        />
+    )
 }
+
+
+ResultsContextContainer.propTypes = {
+    address: PropTypes.string
+}
+export default ResultsContextContainer

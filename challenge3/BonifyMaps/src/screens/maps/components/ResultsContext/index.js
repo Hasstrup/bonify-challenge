@@ -8,10 +8,8 @@ import {
   UNRESOLVED_COORDINATES_CONTEXT
 } from "src/Constants";
 import * as styles from "./Styles";
-import { ProcessIndicator } from "src/SharedComponents";
 import VideoPreviewContext from "./Contexts/VideoPreviewContext";
 import NewUserContext from "./Contexts/NewUserContext";
-import UnresolvedCoordsContext from "./Contexts/UnresolvedCoordsContext";
 
 /**
  *
@@ -21,17 +19,14 @@ import UnresolvedCoordsContext from "./Contexts/UnresolvedCoordsContext";
  * @desc layer that handles viewing of the user's interaction with the map
  */
 const ResultsContextView = props => {
+  const { address, processing, handleButtonPress } = props;
   const renderContext = () => {
     const { currentUIContext } = props;
     switch (currentUIContext) {
-      case DATA_FETCHING:
-        return <ProcessIndicator />;
       case VIDEO_RESULTS_FETCHED:
-        return <VideoPreviewContext />;
+        return <VideoPreviewContext address={address} />;
       case NEW_USER_CONTEXT:
         return <NewUserContext />;
-      case UNRESOLVED_COORDINATES_CONTEXT:
-        return <UnresolvedCoordsContext />;
       default:
         return null;
     }
@@ -41,6 +36,7 @@ const ResultsContextView = props => {
 };
 
 ResultsContextView.propTypes = {
+  address: PropTypes.string,
   currentUIContext: PropTypes.oneOf([
     DATA_FETCHING,
     VIDEO_RESULTS_FETCHED,

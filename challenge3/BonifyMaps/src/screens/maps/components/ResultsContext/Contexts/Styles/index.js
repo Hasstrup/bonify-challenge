@@ -11,7 +11,7 @@ export const VideoPreviewStyle = {
       flex: 1,
       flexBasis: '70%',
       justifyContent: 'center',
-      alignItems: 'center',
+      alignItems: 'flex-start',
       borderRightWidth: 1,
       borderRightColor: GRAY_COLOR
   },
@@ -22,13 +22,14 @@ export const VideoPreviewStyle = {
     alignItems: 'center'
   },
   contentTitle: {
-      fontSize: 19,
+      fontSize: 18,
       fontWeight: '600',
+      width: '90%',
       color: BLACK,
       marginBottom: 10
   }, 
   contentDescription: {
-     fontSize: 17,
+     fontSize: 16,
      color: DARKER_GRAY
   }
 
