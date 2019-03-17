@@ -1,59 +1,60 @@
-import { GRAY_COLOR, BLACK, DARKER_GRAY } from "src/Constants";
+import { GRAY_COLOR, BLACK, DARKER_GRAY, DEVICE_HEIGHT } from "src/Constants";
 
 export const SingleVideoComponentStyle = {
   topContainer: {
     flex: 1,
-    flexBasis: "14%",
+    flexBasis: "8%",
     flexDirection: "row",
     padding: 15,
+    borderWidth: 1,
+    borderRadius: 2,
+    borderColor: GRAY_COLOR,
+    marginBottom: (DEVICE_HEIGHT * 0.1) / 6,
     shadowColor: GRAY_COLOR,
-    shadowOffset: { width: 0, height: 3 },
-    shadowRadius: 2,
-    shadowOpacity: 0.8,
-    marginBottom: 5
+    backgroundColor: 'white',
+    shadowOffset: { width: 10, height: 10 },
+    shadowOpacity: .4
   },
 
   imageContainer: {
     flex: 1,
-    height: 100,
-    width: 100,
     flexBasis: "25%",
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "flex-start",
     borderRightWidth: 1,
     borderRightColor: GRAY_COLOR
   },
 
   imageContent: {
-    height: "50%",
-    width: "50%"
+    height: "70%",
+    width: "70%"
   },
 
   textContainer: {
     flex: 1,
-    flexBasis: "25%",
+    flexBasis: "70%",
     justifyContent: "center",
-    alignItems: "center"
+    paddingLeft: 15
   },
 
   videoTitle: {
-    fontSize: 16,
+    fontSize: 15,
     fontWeight: "700",
     color: BLACK,
     marginBottom: 5
   },
 
   videoDuration: {
-    fontSize: 14,
+    fontSize: 13,
     color: DARKER_GRAY
   }
 };
 
 export const VideoListContainerStyle = {
   topContainer: {
-      flex: 1,
-      position: 'relative'
-  },
+    flex: 1,
+    position: "relative"
+  }
 };
 
 /**
@@ -67,14 +68,14 @@ export const PreviewAddressStyle = {
     alignSelf: "center",
     position: "absolute",
     bottom: 30,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     backgroundColor: BLACK
   },
   textContent: {
     fontSize: 16,
-    fontWeight: '500',
-    width: "60%",
+    fontWeight: "500",
+    width: "80%",
     color: "white"
   }
 };

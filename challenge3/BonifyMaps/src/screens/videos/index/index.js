@@ -26,7 +26,7 @@ export const VideosIndexScreen = props => {
   const navigator = setNavigatorProp(props.componentId);
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, padding: 15 }}>
       <VideoListContainer navigator={navigator} />
     </View>
   );

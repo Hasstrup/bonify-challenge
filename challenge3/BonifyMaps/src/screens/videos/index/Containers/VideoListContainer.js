@@ -32,7 +32,7 @@ VideoListContainer.propTypes = {
 };
 
 VideoListContainer.defaultProps = {
-  data: [1, 2]
+  videosList: [1, 2]
 };
 
 export default VideoListContainer;
