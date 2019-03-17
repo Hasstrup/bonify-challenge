@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { View } from "react-native";
 import { setNavigatorProp } from "src/navigation/actions";
-import { MapContainer, ResultsContextContainer } from "src/screens/maps/containers";
+import { MapContainer, ResultsContextContainer, SearchContainer } from "src/screens/maps/containers";
 
 /**
  *
@@ -42,6 +42,7 @@ export class MapsIndexScreen extends Component {
       <View style={{ flex: 1, position: 'relative' }}>
         <MapContainer />
         <ResultsContextContainer />
+        <SearchContainer />
       </View>
     );
   }
