@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FlatList, View, Text } from "react-native";
 import PropTypes from "prop-types";
+import * as VideoActions from "src/Actions/VideoActions";
 import { SingleVideoComponent, PreviewAddress } from "../Components/";
 import { VideoListContainerStyle as styles } from "../Styles";
 
@@ -12,8 +13,48 @@ import { VideoListContainerStyle as styles } from "../Styles";
  * @returns
  */
 const VideoListContainer = props => {
-  const { videosList } = props;
+  const { videosList, locationCoordinates } = props;
+  const intitialState = {
+    fetching: false,
+    videos: [],
+    page: 1,
+    errors: false
+  };
+
+  const [state, setState] = useState(intitialState);
+
+  // get the videos from the first page on mount and clean up after unmount
+  useEffect(() => {
+    getVideosFromYoutube();
+    return resetState;
+  }, []);
+
+  /**
+   * @name getVideosFormYoutube
+   * @desc handler that invokes the VideoActions to get the youtube data
+   * @returns {func}
+   */
+  const getVideosFromYoutube = () => {
+    VideoActions.SearchVideosInLocation(
+      locationCoordinates,
+      state.page,
+      handleRequestSucess,
+      handleRequesFailure
+    );
+  };
+
+  const resetState = () => setState(intitialState);
+
+  const handleRequestSucess = videos => {
+    setState({ ...state, videos: [...state.videos, ...videos], errors: false });
+  };
+
+  const handleRequesFailure = err => {
+    setState({ ...state, errors: err.message });
+  };
+
   const keyExtractor = (item, index) => `${item}`;
+
   return (
     <View style={styles.topContainer}>
       <FlatList
