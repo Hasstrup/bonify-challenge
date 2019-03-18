@@ -8,9 +8,10 @@ const GRAY_COLOR = "#E5E7E9";
 const DARKER_GRAY = "#797D7F";
 const BLACK = "#29292A";
 const INVALID_INPUT_MESSAGE = "Fill in an address please :)";
-const COORDS_RETRIEVE_FAILURE_MESSAGE =
-  "Uh oh something wen't wrong fetching that address :(";
+const COORDS_RETRIEVE_FAILURE_MESSAGE = "Uh oh something wen't wrong fetching that address :(";
+const YOUTUBE_SERVICE_URL = "https://www.googleapis.com/youtube/v3/videos"
 const GOOGLE_MAPS_URL = "https://maps.googleapis.com/maps/api/geocode/json";
+
 export * from '../../env.config.js'
 
 export const { height: DEVICE_HEIGHT, width: DEVICE_WIDTH } = Dimensions.get(
@@ -27,6 +28,7 @@ export {
   BLACK,
   INVALID_INPUT_MESSAGE,
   COORDS_RETRIEVE_FAILURE_MESSAGE,
-  GOOGLE_MAPS_URL
+  GOOGLE_MAPS_URL,
+  YOUTUBE_SERVICE_URL
 };
 

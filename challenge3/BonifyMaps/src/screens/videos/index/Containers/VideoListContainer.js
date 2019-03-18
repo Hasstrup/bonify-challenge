@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { FlatList, View } from "react-native";
+import { FlatList, View, Text } from "react-native";
 import PropTypes from "prop-types";
 import { SingleVideoComponent, PreviewAddress } from "../Components/";
 import { VideoListContainerStyle as styles } from "../Styles";
@@ -20,8 +20,9 @@ const VideoListContainer = props => {
         keyExtractor={keyExtractor}
         data={videosList}
         renderItem={SingleVideoComponent}
+        ListFooterComponent={PreviewAddress}
+        style={styles.flatListContainer}
       />
-      <PreviewAddress />
     </View>
   );
 };
@@ -32,7 +33,7 @@ VideoListContainer.propTypes = {
 };
 
 VideoListContainer.defaultProps = {
-  videosList: [1, 2]
+  videosList: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 };
 
 export default VideoListContainer;

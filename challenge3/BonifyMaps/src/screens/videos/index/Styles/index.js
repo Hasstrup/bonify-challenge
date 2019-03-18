@@ -54,7 +54,11 @@ export const VideoListContainerStyle = {
   topContainer: {
     flex: 1,
     position: "relative"
+  },
+  flatListContainer: {
+      paddingBottom: 20
   }
+
 };
 
 /**
@@ -63,19 +67,16 @@ export const VideoListContainerStyle = {
  */
 export const PreviewAddressStyle = {
   topContainer: {
-    height: "5%",
+    height: "20%",
     width: "80%",
     alignSelf: "center",
-    position: "absolute",
-    bottom: 30,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: BLACK
   },
   textContent: {
-    fontSize: 16,
+    fontSize: 13,
     fontWeight: "500",
     width: "80%",
-    color: "white"
+    color: DARKER_GRAY
   }
 };

@@ -21,7 +21,7 @@ export const SingleVideoComponent = (props) => (
         />
         </View>
        <View style={styles.textContainer}> 
-           <Text style={styles.videoTitle}>This is a video component</Text>
+           <Text style={styles.videoTitle}>{props.item}</Text>
            <Text style={styles.videoDuration}>06:04</Text>
        </View>  
     </TouchableOpacity>
