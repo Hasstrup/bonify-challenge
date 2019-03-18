@@ -12,9 +12,9 @@ const DummyYoutubeData = {
   description:
     "This is a text description which should ideally not make any sense and all of that but who knows and who cares",
   creator: "Hasstrup Ezekiel",
-  title: "Pretty neat"
+  title: "Pretty neat",
+  id: "Y3_RT8KT_IA"
 };
-
 
 /**
  *
@@ -23,10 +23,15 @@ const DummyYoutubeData = {
  * @param {any} props
  * @returns {function} React Component
  */
-export const SingleVideoComponent = ({ item }) => {
+export const SingleVideoComponent = ({ item, handlePress }) => {
   const node = item.id ? item : DummyYoutubeData;
   return (
-    <TouchableOpacity style={styles.topContainer}>
+    <TouchableOpacity
+      onPress={() => {
+        handlePress(item.id);
+      }}
+      style={styles.topContainer}
+    >
       <View style={styles.imageContainer}>
         <Image
           source={{ uri: node.backdropImage }}
