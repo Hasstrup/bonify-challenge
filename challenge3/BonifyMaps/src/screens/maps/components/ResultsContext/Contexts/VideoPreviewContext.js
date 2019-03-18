@@ -23,7 +23,7 @@ const VideoPreviewContext = props => (
   </View>
 );
 
-VideoPreviewContext.PropTypes = {
+VideoPreviewContext.propTypes = {
   address: PropTypes.string,
   videosCount: PropTypes.number,
   handleButtonPress: PropTypes.func

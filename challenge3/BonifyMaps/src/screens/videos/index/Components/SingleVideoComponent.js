@@ -4,6 +4,7 @@ import { TouchableOpacity, Text, Image, View } from 'react-native';
 import { SingleVideoComponentStyle as styles } from '../Styles';
 
 
+
 const URI = 'https://images.unsplash.com/photo-1552640195-a7c44126dc5f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'
  /**
  * 
@@ -12,7 +13,9 @@ const URI = 'https://images.unsplash.com/photo-1552640195-a7c44126dc5f?ixlib=rb-
  * @param {any} props 
  * @returns {function} React Component 
  */
-export const SingleVideoComponent = (props) => (
+export const SingleVideoComponent = (props) => {
+   console.log(props);
+    return (
     <TouchableOpacity style={styles.topContainer}> 
         <View style={styles.imageContainer}> 
         <Image 
@@ -26,7 +29,7 @@ export const SingleVideoComponent = (props) => (
        </View>  
     </TouchableOpacity>
 )
-
+    }
 SingleVideoComponent.propTypes = {
     textContent: PropTypes.string,
     imageSource: PropTypes.string,

@@ -14,11 +14,10 @@ import { VideoListContainerStyle as styles } from "../Styles";
  * @returns
  */
 const VideoListContainer = props => {
-  const { videosList, location } = props;
+  const { location } = props;
   const intitialState = {
     fetching: false,
     videos: [],
-    page: 1,
     errors: false
   };
 
@@ -38,29 +37,53 @@ const VideoListContainer = props => {
   const getVideosFromYoutube = () => {
     VideoActions.SearchVideosInLocation(
       location,
-      state.page,
-      handleRequestSucess,
+      state.nextPageToken,
+      handleRequestSuccess,
       handleRequesFailure
     );
   };
 
+  /**
+   * @name resetState
+   * @desc cleans Up (sets initial values of) the state 
+   * after the component unmounts. 
+   */
   const resetState = () => setState(intitialState);
 
-  const handleRequestSucess = videos => {
-    setState({ ...state, videos: [...state.videos, ...(videos || [])], errors: false });
+  /**
+   * 
+   * @name handleRequestSuccess
+   * @desc updates state after the videos are fetched from youtube
+   * @param {any} { videos, meta } 
+   */
+  const handleRequestSuccess = ({ videos, meta }) => {
+    console.log(videos)
+    console.log('here we are')
+    setState({
+      ...state,
+      videos: [...state.videos, ...(videos || [])],
+      errors: false,
+      nextPageToken: meta.nextPageToken,
+      total: meta.total
+    });
   };
 
+  /**
+   * 
+   * @name handleRequesFailure
+   * @desc updates the error key of the state to reflect
+   *  the problem of the current request iteration
+   * @param {any} err 
+   */
   const handleRequesFailure = err => {
     setState({ ...state, errors: err.message });
   };
 
-  const keyExtractor = (item, index) => `${item}`;
-
   return (
     <View style={styles.topContainer}>
       <FlatList
-        keyExtractor={keyExtractor}
-        data={videosList}
+        keyExtractor={(item) => item.id}
+        data={state.videos}
         renderItem={SingleVideoComponent}
         ListFooterComponent={PreviewAddress}
         style={styles.flatListContainer}
@@ -75,7 +98,7 @@ VideoListContainer.propTypes = {
 };
 
 VideoListContainer.defaultProps = {
-  videosList: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  videosList: []
 };
 
 export default VideoListContainer;
