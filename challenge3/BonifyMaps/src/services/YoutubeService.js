@@ -7,6 +7,7 @@ import {
 } from "src/Constants";
 
 
+
 const MAX_RESULTS_PER_PAGE = 10;
 
 /**
@@ -25,6 +26,7 @@ export const fetchVideosListFromYoutube = async (location, pageToken) => {
     if (!response.data.items.length) throw new Error(EMPTY_VIDEOS_LIST_MESSAGE);
     return formatVideoDataFromResponse(response);
   } catch (e) {
+    console.log(e.response)
     throw new Error(YOUTUBE_RETRIEVE_FAIL_MESSAGE);
   }
 };
