@@ -35,6 +35,8 @@ target 'BonifyMaps' do
     pod 'react-native-google-maps', path: rn_maps_path 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
+  pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
+
 end
 post_install do |installer|
     installer.pods_project.targets.each do |target|

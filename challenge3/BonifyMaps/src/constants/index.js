@@ -9,8 +9,9 @@ const DARKER_GRAY = "#797D7F";
 const BLACK = "#29292A";
 const INVALID_INPUT_MESSAGE = "Fill in an address please :)";
 const COORDS_RETRIEVE_FAILURE_MESSAGE = "Uh oh something wen't wrong fetching that address :(";
-const YOUTUBE_SERVICE_URL = "https://www.googleapis.com/youtube/v3/videos"
+const YOUTUBE_SERVICE_URL = "https://www.googleapis.com/youtube/v3/search"
 const GOOGLE_MAPS_URL = "https://maps.googleapis.com/maps/api/geocode/json";
+const YOUTUBE_RETRIEVE_FAIL_MESSAGE = 'Uh oh we could not find any videos in that location'
 
 export * from '../../env.config.js'
 
@@ -29,6 +30,7 @@ export {
   INVALID_INPUT_MESSAGE,
   COORDS_RETRIEVE_FAILURE_MESSAGE,
   GOOGLE_MAPS_URL,
-  YOUTUBE_SERVICE_URL
+  YOUTUBE_SERVICE_URL,
+  YOUTUBE_RETRIEVE_FAIL_MESSAGE
 };
 
