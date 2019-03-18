@@ -24,10 +24,10 @@ const VideoListContainer = props => {
   const [state, setState] = useState(intitialState);
 
   // get the videos from the first page on mount and clean up after unmount
-  // useEffect(() => {
-  //   getVideosFromYoutube();
-  //   return resetState;
-  // }, []);
+  useEffect(() => {
+    getVideosFromYoutube();
+    return resetState;
+  }, []);
 
   /**
    * @name getVideosFormYoutube
@@ -79,10 +79,9 @@ const VideoListContainer = props => {
 
   return (
     <View style={styles.topContainer}>
-     <Text style={styles.screenTitle}> Videos </Text>
       <FlatList
         keyExtractor={(item) => item.id}
-        data={[1,2,3,4,5,6,7,8,9,10]}
+        data={state.videos}
         renderItem={SingleVideoComponent}
         ListFooterComponent={PreviewAddress}
         ListHeaderComponent={CustomNavigator}

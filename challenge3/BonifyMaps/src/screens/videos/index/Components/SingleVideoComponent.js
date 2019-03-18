@@ -4,7 +4,18 @@ import LinearGradient from "react-native-linear-gradient";
 import { TouchableOpacity, Text, Image, View } from "react-native";
 import { SingleVideoComponentStyle as styles } from "../Styles";
 
-const GRADIENT_COLORS = ["#000000", `#00000060`, `#00000010`];
+const GRADIENT_COLORS = ["#000000", `#00000010`, `#00000010`];
+
+const DummyYoutubeData = {
+  backdropImage:
+    "https://images.unsplash.com/photo-1552640195-a7c44126dc5f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+  description:
+    "This is a text description which should ideally not make any sense and all of that but who knows and who cares",
+  creator: "Hasstrup Ezekiel",
+  title: "Pretty neat"
+};
+
+
 /**
  *
  *@name SingleVideoComponent
@@ -12,15 +23,13 @@ const GRADIENT_COLORS = ["#000000", `#00000060`, `#00000010`];
  * @param {any} props
  * @returns {function} React Component
  */
-export const SingleVideoComponent = ({ index, item }) => {
+export const SingleVideoComponent = ({ item }) => {
+  const node = item.id ? item : DummyYoutubeData;
   return (
     <TouchableOpacity style={styles.topContainer}>
       <View style={styles.imageContainer}>
         <Image
-          source={{
-            uri:
-              "https://images.unsplash.com/photo-1552640195-a7c44126dc5f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
-          }}
+          source={{ uri: node.backdropImage }}
           style={styles.imageContent}
         />
       </View>
@@ -31,14 +40,9 @@ export const SingleVideoComponent = ({ index, item }) => {
         end={{ x: 1, y: 1 }}
         locations={[0.8, 0.2, 0.2]}
       >
-        <Text style={styles.videoTitle}>
-          {item.title || "This is a really really long title"}
-        </Text>
-        <Text style={styles.creator}>{item.creator || "Creator"}</Text>
-        <Text style={styles.description}>
-          {item.description ||
-            "This is a text description which should ideally not make any sense and all of that but who knows and who cares "}
-        </Text>
+        <Text style={styles.videoTitle}>{node.title}</Text>
+        <Text style={styles.creator}>{node.creator}</Text>
+        <Text style={styles.description}>{node.description}</Text>
       </LinearGradient>
     </TouchableOpacity>
   );

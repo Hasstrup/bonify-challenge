@@ -1,10 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { View, StyleSheet } from "react-native";
+import { View } from "react-native";
 import { setNavigatorProp, setNavigationOptions } from "src/navigation/actions";
 import VideoListContainer from "./Containers/VideoListContainer";
-import { BLACK, QUASI_BLACK } from "src/Constants/";
-import { VideoScreenStyle as styles } from './Styles';
+import { VideoScreenStyle as styles } from "./Styles";
 
 /**
  *
@@ -17,6 +16,9 @@ export const VideosIndexScreen = props => {
   const navigationOptions = {
     topBar: {
       visible: false
+    },
+    statusBar: {
+      style: "light"
     }
   };
 

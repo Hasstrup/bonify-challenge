@@ -37,7 +37,8 @@ export const SingleVideoComponentStyle = {
     bottom: 0,
     justifyContent: "flex-end",
     paddingLeft: 10,
-    paddingRight: 10
+    paddingRight: 10,
+    paddingBottom: 5
   },
 
   textContainer: {
@@ -120,13 +121,14 @@ export const VideoScreenStyle = {
 export const CustomNavigatorStyle = {
   topContainer: {
     flex: 1,
-    marginBottom: 50
+    marginBottom: 10,
+    flexDirection: 'row'
   },
-  
+
   buttonContainer: {
     height: 50,
     width: 60,
-    alignSelf: "flex-end"
+    alignSelf: "flex-start"
   },
 
   headerText: {
@@ -134,6 +136,7 @@ export const CustomNavigatorStyle = {
     color: "white",
     fontWeight: "700",
     marginBottom: 40,
+    justifySelf: 'center',
     alignSelf: "center"
   }
 };
