@@ -13,6 +13,7 @@ const YOUTUBE_SERVICE_URL = "https://www.googleapis.com/youtube/v3/search"
 const GOOGLE_MAPS_URL = "https://maps.googleapis.com/maps/api/geocode/json";
 const YOUTUBE_RETRIEVE_FAIL_MESSAGE = 'Uh oh we could not find any videos in that location'
 const EMPTY_VIDEOS_LIST_MESSAGE = "No videos to display, so here's a cookie ;) "
+const QUASI_BLACK = "#131313"
 
 export * from '../../env.config.js'
 
@@ -33,6 +34,7 @@ export {
   GOOGLE_MAPS_URL,
   YOUTUBE_SERVICE_URL,
   YOUTUBE_RETRIEVE_FAIL_MESSAGE,
-  EMPTY_VIDEOS_LIST_MESSAGE
+  EMPTY_VIDEOS_LIST_MESSAGE,
+  QUASI_BLACK
 };
 

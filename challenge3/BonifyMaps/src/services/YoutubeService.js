@@ -32,7 +32,7 @@ export const fetchVideosListFromYoutube = async (location, pageToken) => {
 /**
  *
  * @name buildQuery
- * @desc returns the query for fetching resources from the data
+ * @desc returns the query for fetching resources from youtube
  * @param {any} querySource
  * @returns
  */
@@ -82,7 +82,7 @@ const formatVideoDataFromResponse = ({ data }) => {
         title: node.snippet.title,
         description: node.snippet.description,
         creator: node.snippet.channelTitle,
-        backdropImage: node.snippet.thumbnails.default.url
+        backdropImage: node.snippet.thumbnails.high.url
       };
     });
   };

@@ -1,9 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { View } from "react-native";
+import { View, StyleSheet } from "react-native";
 import { setNavigatorProp, setNavigationOptions } from "src/navigation/actions";
 import VideoListContainer from "./Containers/VideoListContainer";
-import { BLACK } from "src/Constants/";
+import { BLACK, QUASI_BLACK } from "src/Constants/";
+import { VideoScreenStyle as styles } from './Styles';
 
 /**
  *
@@ -15,9 +16,7 @@ import { BLACK } from "src/Constants/";
 export const VideosIndexScreen = props => {
   const navigationOptions = {
     topBar: {
-      title: {
-        text: "Videos"
-      }
+      visible: false
     }
   };
 
@@ -27,7 +26,7 @@ export const VideosIndexScreen = props => {
   const navigator = setNavigatorProp(props.componentId);
 
   return (
-    <View style={{ flex: 1, padding: 15 }}>
+    <View style={styles.topContainer}>
       <VideoListContainer location={props.location} navigator={navigator} />
     </View>
   );

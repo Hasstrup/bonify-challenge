@@ -1,64 +1,78 @@
-import { GRAY_COLOR, BLACK, DARKER_GRAY, DEVICE_HEIGHT } from "src/Constants";
+import { StyleSheet } from 'react-native';
+import { GRAY_COLOR, BLACK, DARKER_GRAY, DEVICE_HEIGHT, QUASI_BLACK } from "src/Constants";
 
 export const SingleVideoComponentStyle = {
   topContainer: {
     flex: 1,
-    flexBasis: "8%",
-    flexDirection: "row",
-    padding: 15,
+    flexBasis: "15%",
+    height: DEVICE_HEIGHT / 5,
+    position: 'relative',
     borderWidth: 1,
     borderRadius: 2,
-    borderColor: GRAY_COLOR,
     marginBottom: (DEVICE_HEIGHT * 0.1) / 6,
-    shadowColor: GRAY_COLOR,
-    backgroundColor: 'white',
-    shadowOffset: { width: 10, height: 10 },
-    shadowOpacity: .4
   },
 
   imageContainer: {
     flex: 1,
-    flexBasis: "25%",
-    justifyContent: "center",
-    alignItems: "flex-start",
-    borderRightWidth: 1,
-    borderRightColor: GRAY_COLOR
+    flexBasis: '100%',
   },
 
   imageContent: {
-    height: "70%",
-    width: "70%"
+    flex: 1,
+    height: "100%",
+    width: "100%"
+  },
+
+  gradientContainer: {
+    flex: 1,
+    width: '100%',
+    flexBasis: "35%",
+    position: 'absolute',
+    bottom: 0,
+    justifyContent: 'flex-end',
+    paddingLeft: 5
   },
 
   textContainer: {
-    flex: 1,
-    flexBasis: "70%",
-    justifyContent: "center",
-    paddingLeft: 15
+      flexBasis: '20%',
+      width: '40%',
   },
 
   videoTitle: {
-    fontSize: 15,
-    fontWeight: "700",
-    color: BLACK,
+    fontSize: 17,
+    width: '80%',
+    fontWeight: "500",
+    color: 'white',
     marginBottom: 5
   },
 
-  videoDuration: {
-    fontSize: 13,
-    color: DARKER_GRAY
+  metaContainer: {
+
+  },
+
+  creator: {
+      fontSize: 15,
+      color: 'white',
+      marginBottom: 6
+  },
+
+  description: {
+      fontSize: 14,
+      color: 'white',
+      width: '90%'
   }
 };
 
 export const VideoListContainerStyle = {
   topContainer: {
     flex: 1,
-    position: "relative"
   },
+  
   flatListContainer: {
-      paddingBottom: 20
+      flex: 1,
+      position: 'relative',
+      backgroundColor: QUASI_BLACK
   }
-
 };
 
 /**
@@ -80,3 +94,13 @@ export const PreviewAddressStyle = {
     color: DARKER_GRAY
   }
 };
+
+export const VideoScreenStyle = {
+    topContainer: {
+        ...StyleSheet.absoluteFillObject,
+        justifyContent: 'space-around',
+        backgroundColor: QUASI_BLACK,
+        paddingRight: '5%',
+        paddingLeft: '5%',
+    }
+}

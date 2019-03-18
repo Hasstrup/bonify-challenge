@@ -4,10 +4,10 @@ import ResultsContextView from "../components/ResultsContext/";
 import {
   DATA_FETCHING,
   VIDEO_RESULTS_FETCHED,
+  QUASI_BLACK,
   NEW_USER_CONTEXT,
   UNRESOLVED_COORDINATES_CONTEXT
 } from "src/Constants";
-
 
 /**
  *
@@ -18,16 +18,14 @@ import {
  *
  */
 const ResultsContextContainer = props => {
-
-
-/**
- * @name handleNavigation
- * @desc handles routing from the maps index page 
- * to the videos index page passing the latLng, so the 
- * next screen can find the 
- * @returns {null}
- */
-const handleNavigation = () => {
+  /**
+   * @name handleNavigation
+   * @desc handles routing from the maps index page
+   * to the videos index page passing the latLng, so the
+   * next screen can find the
+   * @returns {null}
+   */
+  const handleNavigation = () => {
     props.navigator.push({
       component: {
         name: "VideosIndexScreen",

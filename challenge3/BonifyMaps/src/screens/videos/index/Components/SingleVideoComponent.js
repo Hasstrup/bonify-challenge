@@ -1,37 +1,37 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { TouchableOpacity, Text, Image, View } from 'react-native';
-import { SingleVideoComponentStyle as styles } from '../Styles';
+import React from "react";
+import PropTypes from "prop-types";
+import LinearGradient from "react-native-linear-gradient";
+import { TouchableOpacity, Text, Image, View } from "react-native";
+import { SingleVideoComponentStyle as styles } from "../Styles";
+import { BLACK } from "src/Constants";
 
-
-
-const URI = 'https://images.unsplash.com/photo-1552640195-a7c44126dc5f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'
- /**
- * 
+const GRADIENT_COLORS = ['#000000', `#00000090`, `#00000010`];
+/**
+ *
  *@name SingleVideoComponent
- * @desc Single Video item which contains information from youtube on the videos 
- * @param {any} props 
- * @returns {function} React Component 
+ * @desc Single Video item which contains information from youtube on the videos
+ * @param {any} props
+ * @returns {function} React Component
  */
-export const SingleVideoComponent = (props) => {
-   console.log(props);
-    return (
-    <TouchableOpacity style={styles.topContainer}> 
-        <View style={styles.imageContainer}> 
-        <Image 
-           source={{ uri: URI }}
-           style={styles.imageContent}
-        />
-        </View>
-       <View style={styles.textContainer}> 
-           <Text style={styles.videoTitle}>{props.item}</Text>
-           <Text style={styles.videoDuration}>06:04</Text>
-       </View>  
+export const SingleVideoComponent = ({ index, item }) => {
+  return (
+    <TouchableOpacity style={styles.topContainer}>
+      <View style={styles.imageContainer}>
+        <Image source={{ uri: item.backdropImage }} style={styles.imageContent} />
+      </View>
+      <LinearGradient
+        style={styles.gradientContainer}
+        colors={GRADIENT_COLORS}
+      >
+          <Text style={styles.videoTitle}>{item.title}</Text>
+          <Text style={styles.creator}>{item.creator}</Text>
+          <Text style={styles.description}>{item.description}</Text>
+      </LinearGradient>
     </TouchableOpacity>
-)
-    }
+  );
+};
 SingleVideoComponent.propTypes = {
-    textContent: PropTypes.string,
-    imageSource: PropTypes.string,
-    handlePress: PropTypes.func
-}
+  textContent: PropTypes.string,
+  imageSource: PropTypes.string,
+  handlePress: PropTypes.func
+};

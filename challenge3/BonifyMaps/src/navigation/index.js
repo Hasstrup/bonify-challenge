@@ -40,7 +40,15 @@ export const initializeApplication = () => {
   Navigation.events().registerAppLaunchedListener(() => {
     Navigation.setRoot({
       root: {
-        stack: { ...navigationStackFromScreens(ApplicationScreens) }
+        stack: {
+          options: {
+            topBar: {
+              visible: false,
+              drawBehind: true
+            }
+          },
+          ...navigationStackFromScreens(ApplicationScreens)
+        }
       }
     });
   });

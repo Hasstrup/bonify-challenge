@@ -57,8 +57,6 @@ const VideoListContainer = props => {
    * @param {any} { videos, meta } 
    */
   const handleRequestSuccess = ({ videos, meta }) => {
-    console.log(videos)
-    console.log('here we are')
     setState({
       ...state,
       videos: [...state.videos, ...(videos || [])],
