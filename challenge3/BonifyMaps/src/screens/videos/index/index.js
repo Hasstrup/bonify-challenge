@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { View } from "react-native";
 import { setNavigatorProp, setNavigationOptions } from "src/navigation/actions";
 import VideoListContainer from "./Containers/VideoListContainer";
@@ -15,21 +16,26 @@ export const VideosIndexScreen = props => {
   const navigationOptions = {
     topBar: {
       title: {
-        text: 'Videos'
-      },  
+        text: "Videos"
+      }
     }
   };
 
   const { componentId } = props;
-  
-  setNavigationOptions(componentId, navigationOptions)
+
+  setNavigationOptions(componentId, navigationOptions);
   const navigator = setNavigatorProp(props.componentId);
 
   return (
     <View style={{ flex: 1, padding: 15 }}>
-      <VideoListContainer navigator={navigator} />
+      <VideoListContainer location={props.location} navigator={navigator} />
     </View>
   );
+};
+
+VideosIndexScreen.propTypes = {
+  location: PropTypes.string.isRequired,
+  navigator: PropTypes.func.isRequired4
 };
 
 VideosIndexScreen.options = () => ({});

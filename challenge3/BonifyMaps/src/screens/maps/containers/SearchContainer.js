@@ -30,7 +30,7 @@ const SearchContainer = props => {
   );
 };
 
-SearchContainer.PropTypes = {
+SearchContainer.propTypes = {
     handleAddressChange: PropTypes.func,
     handleErrorCallback: PropTypes.func
 }

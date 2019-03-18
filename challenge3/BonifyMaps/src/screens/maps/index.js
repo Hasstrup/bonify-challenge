@@ -58,6 +58,7 @@ export const MapsIndexScreen = props => {
         errors={state.errors}
         navigator={navigator}
         address={state.address}
+        location={state.latLng}
       />
       <SearchContainer 
         handleAddressChange={handleAddressChange}

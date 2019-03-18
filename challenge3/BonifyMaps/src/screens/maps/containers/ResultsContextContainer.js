@@ -8,6 +8,7 @@ import {
   UNRESOLVED_COORDINATES_CONTEXT
 } from "src/Constants";
 
+
 /**
  *
  * @export
@@ -18,19 +19,25 @@ import {
  */
 const ResultsContextContainer = props => {
 
+
 /**
  * @name handleNavigation
  * @desc handles routing from the maps index page 
- * to the videos index page
+ * to the videos index page passing the latLng, so the 
+ * next screen can find the 
  * @returns {null}
  */
 const handleNavigation = () => {
     props.navigator.push({
       component: {
-        name: "VideosIndexScreen"
+        name: "VideosIndexScreen",
+        passProps: {
+          location: props.location
+        }
       }
     });
   };
+
   return (
     <ResultsContextView
       currentUIContext={VIDEO_RESULTS_FETCHED}

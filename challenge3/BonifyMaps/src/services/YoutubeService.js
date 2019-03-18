@@ -15,10 +15,12 @@ const MAX_RESULTS_PER_PAGE = 10;
  */
 export const fetchVideosListFromYoutube = async ({ location, page }) => {
   try {
-    const response = await axios(YOUTUBE_SERVICE_URL, {
-      query: buildQuery({ location, page })
-    });
-    console.log(response);
+    if (!location) return [];
+    const url = `${YOUTUBE_SERVICE_URL}?${yieldStringFromQuery(
+      buildQuery({ location, page })
+    )}`;
+    const response = await axios(url);
+    console.log(response)
     return response;
   } catch (e) {
     throw new Error(YOUTUBE_RETRIEVE_FAIL_MESSAGE);
@@ -33,15 +35,30 @@ export const fetchVideosListFromYoutube = async ({ location, page }) => {
  * @returns
  */
 const buildQuery = querySource => {
-  const { location, page = 1 } = querySource;
+  const { location, pageToken } = querySource;
   return {
     type: "video",
     part: "snippet",
     location,
-    locationRadius: `${location}Radius`,
+    locationRadius: '5km',
     maxResults: MAX_RESULTS_PER_PAGE,
     order: "date", // arrange them chronologically
-    pageToken: page.toString(),
-    key: YOUTUBE_API_KEY
+    key: YOUTUBE_API_KEY,
+    ...((pageToken && { pageToken }) || {})
   };
+};
+
+/**
+ * 
+ * @name yieldStringFromQuery
+ * @desc builds a query string for the qoutube api, no
+ * thanks to qs smh
+ * @param {any} query 
+ * @returns {string} the query string
+ */
+const yieldStringFromQuery = query => {
+  return Object.keys(query).reduce((result, key) => {
+    if (!result.length) return `${key}=${query[key]}`;
+    return `${result}&${key}=${query[key]}`;
+  }, "");
 };

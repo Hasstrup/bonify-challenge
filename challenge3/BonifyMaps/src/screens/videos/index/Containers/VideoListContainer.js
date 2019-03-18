@@ -5,6 +5,7 @@ import * as VideoActions from "src/Actions/VideoActions";
 import { SingleVideoComponent, PreviewAddress } from "../Components/";
 import { VideoListContainerStyle as styles } from "../Styles";
 
+
 /**
  *
  * @name VideoList
@@ -13,7 +14,7 @@ import { VideoListContainerStyle as styles } from "../Styles";
  * @returns
  */
 const VideoListContainer = props => {
-  const { videosList, locationCoordinates } = props;
+  const { videosList, location } = props;
   const intitialState = {
     fetching: false,
     videos: [],
@@ -36,7 +37,7 @@ const VideoListContainer = props => {
    */
   const getVideosFromYoutube = () => {
     VideoActions.SearchVideosInLocation(
-      locationCoordinates,
+      location,
       state.page,
       handleRequestSucess,
       handleRequesFailure
@@ -46,7 +47,7 @@ const VideoListContainer = props => {
   const resetState = () => setState(intitialState);
 
   const handleRequestSucess = videos => {
-    setState({ ...state, videos: [...state.videos, ...videos], errors: false });
+    setState({ ...state, videos: [...state.videos, ...(videos || [])], errors: false });
   };
 
   const handleRequesFailure = err => {
