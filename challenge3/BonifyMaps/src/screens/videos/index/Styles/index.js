@@ -20,6 +20,7 @@ export const SingleVideoComponentStyle = {
   imageContainer: {
     flex: 1,
     flexBasis: "65%",
+    position: 'relative',
     marginBottom: 40
   },
 
@@ -51,7 +52,7 @@ export const SingleVideoComponentStyle = {
   },
 
   creator: {
-    fontSize: 15,
+    fontSize: 14,
     color: QUASI_BLACK,
     marginBottom: 6
   },
@@ -116,7 +117,7 @@ export const CustomNavigatorStyle = {
   topContainer: {
     flex: 1,
     marginBottom: 10,
-    flexDirection: 'row'
+    flexDirection: "row"
   },
 
   buttonContainer: {
@@ -130,7 +131,21 @@ export const CustomNavigatorStyle = {
     color: BLACK,
     fontWeight: "700",
     marginBottom: 40,
-    justifySelf: 'center',
+    justifySelf: "center",
     alignSelf: "center"
+  }
+};
+
+export const VideoOverlayStyle = {
+  topContainer: {
+    flex: 1,
+    height: "65%",
+    width: "100%",
+    position: "absolute",
+    top: -9,
+    justifyContent: "center",
+    alignItems: "center",
+    zIndex: 2,
+    backgroundColor: "#00000030"
   }
 };

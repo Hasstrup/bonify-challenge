@@ -1,12 +1,29 @@
-import React, { Component } from "react";
-import { View, Text } from "react-native";
+import React from "react";
+import PropTypes from 'prop-types';
+import { View } from "react-native";
+import { setNavigatorProp } from "src/navigation/actions";
+import YoutubePlayerContainer from "./Containers";
 
-export class VideosShowScreen extends Component {
-  render() {
-    return (
-      <View>
-        <Text> Hello from Maps Show Screen</Text>
-      </View>
-    );
-  }
+/**
+ * 
+ * @name VideosShowScreen
+ * @desc renders the youtube player if there is no native youtube 
+ * application 
+ * @param {any} props 
+ * @returns {func} React Component (VideosShowScreen)
+ */
+const VideosShowScreen = (props) => {
+   const navigator = setNavigatorProp(props.componentId)
+  return (
+    <View style={{ flex: 1 }}> 
+      <YoutubePlayerContainer 
+        navigator={navigator}
+        videoId={props.videoId}
+      />
+    </View>
+  )
+}
+
+VideosShowScreen.propTypes = {
+  videoId: PropTypes.string.isRequired
 }

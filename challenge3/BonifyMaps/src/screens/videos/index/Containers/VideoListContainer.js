@@ -94,7 +94,7 @@ const VideoListContainer = props => {
           component: {
             name: "VideosShowScreen",
             passProps: {
-              url
+              videoId
             }
           }
         });

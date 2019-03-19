@@ -1,10 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import LinearGradient from "react-native-linear-gradient";
 import { TouchableOpacity, Text, Image, View } from "react-native";
 import { SingleVideoComponentStyle as styles } from "../Styles";
+import { VideoOverlay } from './OverLayComponent'
 
-const GRADIENT_COLORS = ["#000000", `#00000010`, `#00000010`];
 
 const DummyYoutubeData = {
   backdropImage:
@@ -38,6 +37,7 @@ export const SingleVideoComponent = ({ item, handlePress }) => {
           style={styles.imageContent}
         />
       </View>
+      <VideoOverlay />
       <View
         style={styles.gradientContainer}
       >
