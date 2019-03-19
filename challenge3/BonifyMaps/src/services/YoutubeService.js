@@ -1,13 +1,12 @@
 import axios from "axios";
-import moment from 'moment';
+import moment from "moment";
+import config from "src/config.json";
 import {
   YOUTUBE_API_KEY,
   YOUTUBE_SERVICE_URL,
   YOUTUBE_RETRIEVE_FAIL_MESSAGE,
   EMPTY_VIDEOS_LIST_MESSAGE
 } from "src/Constants";
-
-
 
 const MAX_RESULTS_PER_PAGE = 10;
 
@@ -44,9 +43,9 @@ const buildQuery = querySource => {
     type: "video",
     part: "snippet",
     location,
-    locationRadius: "5km",
+    locationRadius: config.videosLocationRadius, // see https://developers.google.com/youtube/v3/docs/search/list for reference
     maxResults: MAX_RESULTS_PER_PAGE,
-    order: "rating", // arrange them chronologically
+    order: config.videosOrderKey, // arrange them chronologically 
     key: YOUTUBE_API_KEY,
     ...((!!pageToken && { pageToken }) || {})
   };
@@ -71,7 +70,7 @@ const yieldStringFromQuery = query => {
  *
  * @name formatVideoDataFromResponse
  * @desc takes in the response from youtube and yields the
- * correct and usable data for the application. 
+ * correct and usable data for the application.
  * @param {any} { data }
  * @returns {obj} the formatted response
  */
@@ -98,11 +97,10 @@ const formatVideoDataFromResponse = ({ data }) => {
   };
 };
 
-
 /**
- * 
+ *
  * @name formatDate
  * @desc Helps prepare the publishedAt date into a historial context
- * @param {any} date 
+ * @param {any} date
  */
-const formatDate = date => moment(new Date(date)).fromNow() 
+const formatDate = date => moment(new Date(date)).fromNow();
