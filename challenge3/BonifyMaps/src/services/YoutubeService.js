@@ -46,7 +46,7 @@ const buildQuery = querySource => {
     location,
     locationRadius: "5km",
     maxResults: MAX_RESULTS_PER_PAGE,
-    order: "date", // arrange them chronologically
+    order: "rating", // arrange them chronologically
     key: YOUTUBE_API_KEY,
     ...((!!pageToken && { pageToken }) || {})
   };
