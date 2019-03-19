@@ -12,7 +12,10 @@ import { CustomNavigatorStyle as styles } from "../Styles";
  */
 export const CustomNavigator = props => (
   <View style={styles.topContainer}>
-    <TouchableOpacity style={styles.buttonContainer}>
+    <TouchableOpacity
+      style={styles.buttonContainer}
+      onPress={() => props.navigator.pop()}
+    >
       <Icon name="arrow-back" color="black" size={24} />
     </TouchableOpacity>
     <Text style={styles.headerText}>Videos</Text>
@@ -20,5 +23,5 @@ export const CustomNavigator = props => (
 );
 
 CustomNavigator.propTypes = {
-  navigator: PropTypes.func.isRequired
+  navigator: PropTypes.object.isRequired,
 };

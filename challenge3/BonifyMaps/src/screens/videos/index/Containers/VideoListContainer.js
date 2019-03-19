@@ -9,7 +9,6 @@ import {
 } from "../Components/";
 import { VideoListContainerStyle as styles } from "../Styles";
 
-
 /**
  *
  * @name VideoList
@@ -21,7 +20,7 @@ const VideoListContainer = props => {
   const { location, navigator } = props;
   const intitialState = {
     fetching: false,
-    videos: [1,2,3,4],
+    videos: [1, 2, 3, 4],
     errors: false
   };
 
@@ -85,14 +84,6 @@ const VideoListContainer = props => {
     // try to open the youtube app, if not, use
     // react-native-youtube or webview maybe?
     const url = `https://www.youtube.com/watch?v=${videoId}`;
-    return navigator.push({
-      component: {
-        name: "VideosShowScreen",
-        passProps: {
-          videoId
-        }
-      }
-    });
     Linking.canOpenURL(url).then(deviceCanOpen => {
       if (deviceCanOpen) {
         Linking.openURL(url);
@@ -117,8 +108,8 @@ const VideoListContainer = props => {
         renderItem={props => (
           <SingleVideoComponent {...props} handlePress={handleItemPress} />
         )}
-        ListFooterComponent={PreviewAddress}
-        ListHeaderComponent={CustomNavigator}
+        ListFooterComponent={() => <PreviewAddress />}
+        ListHeaderComponent={() => <CustomNavigator navigator={navigator} />}
         style={styles.flatListContainer}
       />
     </View>
