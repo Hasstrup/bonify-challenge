@@ -19,20 +19,25 @@ export const VideosIndexScreen = props => {
     }
   };
 
-  const { componentId } = props;
+  const { componentId, address } = props;
 
   setNavigationOptions(componentId, navigationOptions);
   const navigator = setNavigatorProp(props.componentId);
 
   return (
     <View style={styles.topContainer}>
-      <VideoListContainer location={props.location} navigator={navigator} />
+      <VideoListContainer
+        location={props.location}
+        navigator={navigator}
+        address={address}
+      />
     </View>
   );
 };
 
 VideosIndexScreen.propTypes = {
-  location: PropTypes.string.isRequired
+  location: PropTypes.string.isRequired,
+  address: PropTypes.string.isRequired
 };
 
 VideosIndexScreen.options = () => ({});

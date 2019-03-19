@@ -28,7 +28,8 @@ const ResultsContextContainer = props => {
       component: {
         name: "VideosIndexScreen",
         passProps: {
-          location: props.location
+          location: props.location,
+          address: props.address
         }
       }
     });

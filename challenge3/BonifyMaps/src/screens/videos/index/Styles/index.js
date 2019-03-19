@@ -5,6 +5,7 @@ import {
   DARKER_GRAY,
   DEVICE_HEIGHT,
   QUASI_BLACK,
+  GRAY_COLOR
 } from "src/Constants";
 
 export const SingleVideoComponentStyle = {
@@ -113,10 +114,13 @@ export const PreviewAddressStyle = {
     alignItems: "center"
   },
   textContent: {
-    fontSize: 13,
-    fontWeight: "500",
+    fontSize: 15,
+    fontWeight: "800",
     width: "80%",
     color: DARKER_GRAY
+  },
+  address: {
+    color: "#CACFD2"
   }
 };
 

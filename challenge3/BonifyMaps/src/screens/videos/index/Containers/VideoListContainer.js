@@ -18,16 +18,16 @@ import { VideoListContainerStyle as styles } from "../Styles";
  * @returns
  */
 const VideoListContainer = props => {
-  const { location, navigator } = props;
-  const intitialState = {
+  const { location, navigator, address } = props;
+  const initialState = {
     fetching: false,
-    videos: [1, 2, 3],
-    errors: false
+    videos: [1,2,3],
+    errors: false,
+    validScroll: false
   };
 
-  const [state, setState] = useState(intitialState);
+  const [state, setState] = useState(initialState);
 
-  //get the videos from the first page on mount and clean up after unmount
   useEffect(() => {
     // getVideosFromYoutube();
     return resetState;
@@ -52,7 +52,7 @@ const VideoListContainer = props => {
    * @desc cleans Up (sets initial values of) the state
    * after the component unmounts.
    */
-  const resetState = () => setState(intitialState);
+  const resetState = () => setState(initialState);
 
   /**
    *
@@ -65,6 +65,7 @@ const VideoListContainer = props => {
       ...state,
       videos: [...state.videos, ...(videos || [])],
       errors: false,
+      fetching: false,
       nextPageToken: meta.nextPageToken,
       total: meta.total
     });
@@ -88,7 +89,7 @@ const VideoListContainer = props => {
       if (deviceCanOpen) {
         Linking.openURL(url);
       } else {
-        playVideoInApp();
+        playVideoInApp(videoId);
       }
     });
   };
@@ -110,6 +111,19 @@ const VideoListContainer = props => {
     });
   };
 
+  /**
+   * @name fetchMoreVideosFromYoutube
+   * @desc handles the Infinite scroll logic for fetching the next page
+   * data from youtube
+   *
+   */
+  const fetchMoreVideosFromYoutube = () => {
+    if (state.validScroll) {
+      setState({ ...state, fetching: true });
+      // getVideosFromYoutube()
+    }
+  };
+
   return (
     <View style={styles.topContainer}>
       <FlatList
@@ -118,21 +132,36 @@ const VideoListContainer = props => {
         renderItem={props => (
           <SingleVideoComponent {...props} handlePress={handleItemPress} />
         )}
-        ListFooterComponent={() => <PreviewAddress />}
+        ListFooterComponent={() => (
+          <PreviewAddress
+            processing={state.fetching}
+            address={address}
+            total={state.total || state.videos.length}
+            count={state.videos.length}
+          />
+        )}
         ListHeaderComponent={() => <CustomNavigator navigator={navigator} />}
         style={styles.flatListContainer}
+        onEndReached={fetchMoreVideosFromYoutube}
+        extraData={state.videos}
+        onEndReachedThreshold={0.1}
+        onMomentumScrollBegin={() => {
+          state.validScroll = true; // direct mutation to prevent an event race condition
+        }}
       />
     </View>
   );
 };
 
 VideoListContainer.propTypes = {
-  videosList: PropTypes.array,
+  videos: PropTypes.array,
+  location: PropTypes.string.isRequired,
+  address: PropTypes.string.isRequired,
   navigator: PropTypes.func.isRequired
 };
 
 VideoListContainer.defaultProps = {
-  videosList: []
+  videos: []
 };
 
 export default VideoListContainer;
