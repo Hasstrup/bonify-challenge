@@ -58,7 +58,7 @@ export const SingleVideoComponentStyle = {
   },
 
   description: {
-    fontSize: 13.3,
+    fontSize: 12.3,
     color: DARKER_GRAY,
     width: "95%"
   }

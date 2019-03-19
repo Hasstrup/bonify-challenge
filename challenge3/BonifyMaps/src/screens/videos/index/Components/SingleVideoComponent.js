@@ -7,11 +7,10 @@ import { VideoOverlay } from "./OverLayComponent";
 const DummyYoutubeData = {
   backdropImage:
     "https://images.unsplash.com/photo-1552640195-a7c44126dc5f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
-  description:
-    "This is a text description which should ideally not make any sense and all of that but who knows and who cares",
+  description: `You are seeing this probably because your api key is broken or you did not supply one at all. Did you miss that step while installing? Feel free to reach to hasstrup.ezekiel@gmail.com for his :)`,
   creator: "Hasstrup Ezekiel",
-  title: "Pretty neat",
-  id: "Y3_RT8KT_IA"
+  title: "Looks like something is broken",
+  id: "uAPtECO99OU"
 };
 
 /**
