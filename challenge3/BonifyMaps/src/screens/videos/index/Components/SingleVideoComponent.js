@@ -11,7 +11,7 @@ const DummyYoutubeData = {
   creator: "Hasstrup Ezekiel",
   title: "Looks like something is broken and I dont know how to fix it this also sucks",
   id: "uAPtECO99OU",
-  age: "2d ago"
+  age: "2 years ago"
 };
 
 /**

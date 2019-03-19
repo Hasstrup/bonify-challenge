@@ -4,7 +4,7 @@ import {
   BLACK,
   DARKER_GRAY,
   DEVICE_HEIGHT,
-  QUASI_BLACK
+  QUASI_BLACK,
 } from "src/Constants";
 
 export const SingleVideoComponentStyle = {
@@ -14,7 +14,7 @@ export const SingleVideoComponentStyle = {
     height: DEVICE_HEIGHT / 2.5,
     position: "relative",
     justifyContent: "space-around",
-    marginBottom: (DEVICE_HEIGHT * 0.1) / 2.5
+    marginBottom: (DEVICE_HEIGHT * 0.1) / 2.5,
   },
 
   imageContainer: {
@@ -64,8 +64,9 @@ export const SingleVideoComponentStyle = {
   },
 
   ageContainer: {
-    height: 22,
-    width: 60,
+    height: 25,
+    width: 98,
+    padding: 5,
     backgroundColor: RED,
     justifyContent: "center",
     alignItems: "center",

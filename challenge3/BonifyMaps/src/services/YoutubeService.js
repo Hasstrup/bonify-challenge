@@ -1,4 +1,5 @@
 import axios from "axios";
+import moment from 'moment';
 import {
   YOUTUBE_API_KEY,
   YOUTUBE_SERVICE_URL,
@@ -26,7 +27,6 @@ export const fetchVideosListFromYoutube = async (location, pageToken) => {
     if (!response.data.items.length) throw new Error(EMPTY_VIDEOS_LIST_MESSAGE);
     return formatVideoDataFromResponse(response);
   } catch (e) {
-    console.log(e.response)
     throw new Error(YOUTUBE_RETRIEVE_FAIL_MESSAGE);
   }
 };
@@ -84,7 +84,8 @@ const formatVideoDataFromResponse = ({ data }) => {
         title: node.snippet.title,
         description: node.snippet.description,
         creator: node.snippet.channelTitle,
-        backdropImage: node.snippet.thumbnails.high.url
+        backdropImage: node.snippet.thumbnails.high.url,
+        age: formatDate(node.snippet.publishedAt)
       };
     });
   };
@@ -96,3 +97,12 @@ const formatVideoDataFromResponse = ({ data }) => {
     }
   };
 };
+
+
+/**
+ * 
+ * @name formatDate
+ * @desc Helps prepare the publishedAt date into a historial context
+ * @param {any} date 
+ */
+const formatDate = date => moment(new Date(date)).fromNow() 

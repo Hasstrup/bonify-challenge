@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import { Button, WithProcessIndicator } from "src/SharedComponents/";
 import { VideoPreviewStyle as styles } from "./Styles";
 
@@ -12,17 +12,23 @@ import { VideoPreviewStyle as styles } from "./Styles";
  * @param {any} props
  */
 const VideoPreviewContext = props => (
-  <View style={styles.topContainer}>
+  <TouchableOpacity style={styles.topContainer} onPress={props.handleButtonPress}>
     <View style={styles.textContainer}>
       <Text style={styles.contentTitle}>{props.address}</Text>
-      <Text style={styles.contentDescription}> We found 25 Videos</Text>
+      <Text style={styles.contentDescription}>
+        Tap to see videos in this location
+      </Text>
     </View>
     <View style={styles.buttonContainer}>
-      <WithProcessIndicator processing={props.processing} indicatorSize={22}>
+      <WithProcessIndicator
+        processing={props.processing}
+        indicatorSize={22}
+        style={{ justifyContent: "center", alignItems: "center" }}
+      >
         <Button buttonText="View" handlePress={props.handleButtonPress} />
       </WithProcessIndicator>
     </View>
-  </View>
+  </TouchableOpacity>
 );
 
 VideoPreviewContext.propTypes = {

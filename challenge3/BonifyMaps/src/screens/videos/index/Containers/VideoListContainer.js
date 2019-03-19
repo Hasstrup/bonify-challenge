@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FlatList, View, Text, Linking } from "react-native";
 import PropTypes from "prop-types";
 import * as VideoActions from "src/Actions/VideoActions";
+import config from "src/config.json";
 import {
   SingleVideoComponent,
   PreviewAddress,
@@ -20,7 +21,7 @@ const VideoListContainer = props => {
   const { location, navigator } = props;
   const intitialState = {
     fetching: false,
-    videos: [1,3,4],
+    videos: [1, 2, 3],
     errors: false
   };
 
@@ -28,7 +29,7 @@ const VideoListContainer = props => {
 
   //get the videos from the first page on mount and clean up after unmount
   useEffect(() => {
-   // getVideosFromYoutube();
+    // getVideosFromYoutube();
     return resetState;
   }, []);
 
@@ -81,21 +82,30 @@ const VideoListContainer = props => {
   };
 
   const handleItemPress = videoId => {
-    // try to open the youtube app, if not, use
-    // react-native-youtube or webview maybe?
+    if (config.playVideosInApp) return playVideoInApp(videoId);
     const url = `https://www.youtube.com/watch?v=${videoId}`;
     Linking.canOpenURL(url).then(deviceCanOpen => {
       if (deviceCanOpen) {
         Linking.openURL(url);
       } else {
-        navigator.push({
-          component: {
-            name: "VideosShowScreen",
-            passProps: {
-              videoId
-            }
-          }
-        });
+        playVideoInApp();
+      }
+    });
+  };
+
+  /**
+   * @name playVideoInApp
+   * @desc sends the video to the youtube component embedded in the
+   * application. Modify the config.json to make this the default action
+   *
+   */
+  const playVideoInApp = videoId => {
+    navigator.push({
+      component: {
+        name: "VideosShowScreen",
+        passProps: {
+          videoId
+        }
       }
     });
   };

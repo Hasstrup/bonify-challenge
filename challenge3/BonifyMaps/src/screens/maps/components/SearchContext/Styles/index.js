@@ -1,4 +1,4 @@
-import { GRAY_COLOR, DARKER_GRAY } from 'src/Constants'
+import { GRAY_COLOR, BLACK } from 'src/Constants'
 
 export const SearchContainerStyle = {
     height: '5%',
@@ -16,7 +16,7 @@ export const TextInputStyle = {
     borderRightWidth: 1,
     borderRightColor: GRAY_COLOR,
     paddingLeft: 10, 
-    color: DARKER_GRAY
+    color: BLACK
 }
 
 export const IconContainerStyle = {

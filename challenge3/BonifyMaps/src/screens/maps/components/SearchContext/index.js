@@ -2,7 +2,7 @@ import React from "react";
 import { View, TextInput, TouchableOpacity } from "react-native";
 import PropTypes from "prop-types";
 import Icon from "react-native-vector-icons/MaterialIcons";
-import { GRAY_COLOR } from "src/Constants";
+import { DARKER_GRAY } from "src/Constants";
 import * as styles from "./Styles";
 
 /**
@@ -19,13 +19,13 @@ const SearchContextView = props => {
       <TextInput
         style={styles.TextInputStyle}
         onChangeText={onTextInputChange}
-        placeholder={"Enter an address ... :)"}
+        placeholder={"Enter an address and tap the search button :)"}
       />
       <TouchableOpacity
         style={styles.IconContainerStyle}
         onPress={onButtonPress}
       >
-        <Icon name="search" color={GRAY_COLOR} size={20} />
+        <Icon name="search" color={DARKER_GRAY} size={20} />
       </TouchableOpacity>
     </View>
   );
