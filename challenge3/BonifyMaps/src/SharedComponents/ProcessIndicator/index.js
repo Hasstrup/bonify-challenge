@@ -1,6 +1,6 @@
 import React from "react";
-import { View, Text } from "react-native";
-import { PulseIndicator } from "react-native-indicators";
+import { View, ActivityIndicator } from "react-native";
+import { WaveIndicator } from "react-native-indicators";
 import { BLACK } from "src/Constants";
 import PropTypes from "prop-types";
 import defaultStyles from "./styles";
@@ -14,7 +14,7 @@ import defaultStyles from "./styles";
  */
 export const ProcessIndicator = ({ indicatorSize }) => (
   <View style={defaultStyles.processIndicatorStyle}>
-    <PulseIndicator size={indicatorSize} color={BLACK} />
+    <ActivityIndicator size={indicatorSize} color={BLACK} />
   </View>
 );
 
@@ -32,23 +32,23 @@ export const ProcessIndicator = ({ indicatorSize }) => (
 export const WithProcessIndicator = ({
   processing,
   children,
-  indicatorSize
+  style
 }) => (
-  <View style={{ flex: 1 }}>
-    {processing ? <ProcessIndicator indicatorSize={indicatorSize} /> : children}
+  <View style={{ flex: 1, ...style }}>
+    {processing ? <ProcessIndicator /> : children}
   </View>
 );
 
 WithProcessIndicator.propTypes = {
   children: PropTypes.array.isRequired,
   processing: PropTypes.bool.isRequired,
-  indicatorSize: PropTypes.number
+  style: PropTypes.object
 };
 
 ProcessIndicator.propTypes = {
-  indicatorSize: PropTypes.number
+  indicatorSize: PropTypes.string
 };
 
 ProcessIndicator.defaultProps = {
-  indicatorSize: 14
+  indicatorSize: "large"
 };

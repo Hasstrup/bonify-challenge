@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 import {
-  GRAY_COLOR,
+  RED,
   BLACK,
   DARKER_GRAY,
   DEVICE_HEIGHT,
@@ -14,13 +14,13 @@ export const SingleVideoComponentStyle = {
     height: DEVICE_HEIGHT / 2.5,
     position: "relative",
     justifyContent: "space-around",
-    marginBottom: (DEVICE_HEIGHT * 0.1) / 6
+    marginBottom: (DEVICE_HEIGHT * 0.1) / 2.5
   },
 
   imageContainer: {
     flex: 1,
     flexBasis: "65%",
-    position: 'relative',
+    position: "relative",
     marginBottom: 40
   },
 
@@ -45,22 +45,37 @@ export const SingleVideoComponentStyle = {
 
   videoTitle: {
     fontSize: 18,
-    width: "80%",
+    width: "90%",
     fontWeight: "700",
     color: BLACK,
-    marginBottom: 5
+    marginBottom: 8
   },
 
   creator: {
-    fontSize: 14,
+    fontSize: 15,
     color: QUASI_BLACK,
-    marginBottom: 6
+    marginBottom: 8
   },
 
   description: {
     fontSize: 12.3,
     color: DARKER_GRAY,
     width: "95%"
+  },
+
+  ageContainer: {
+    height: 22,
+    width: 60,
+    backgroundColor: RED,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 5
+  },
+
+  ageContent: {
+    fontSize: 13.5,
+    fontWeight: "600",
+    color: 'white'
   }
 };
 

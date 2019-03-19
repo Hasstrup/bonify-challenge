@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { View, Text } from "react-native";
-import { Button } from "src/SharedComponents/Button";
+import { Button, WithProcessIndicator } from "src/SharedComponents/";
 import { VideoPreviewStyle as styles } from "./Styles";
 
 /**
@@ -18,7 +18,9 @@ const VideoPreviewContext = props => (
       <Text style={styles.contentDescription}> We found 25 Videos</Text>
     </View>
     <View style={styles.buttonContainer}>
-      <Button buttonText="View"  handlePress={props.handleButtonPress} />
+      <WithProcessIndicator processing={props.processing} indicatorSize={22}>
+        <Button buttonText="View" handlePress={props.handleButtonPress} />
+      </WithProcessIndicator>
     </View>
   </View>
 );
@@ -26,7 +28,8 @@ const VideoPreviewContext = props => (
 VideoPreviewContext.propTypes = {
   address: PropTypes.string,
   videosCount: PropTypes.number,
-  handleButtonPress: PropTypes.func
+  handleButtonPress: PropTypes.func,
+  processing: PropTypes.bool
 };
 
 export default VideoPreviewContext;

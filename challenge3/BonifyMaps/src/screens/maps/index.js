@@ -9,11 +9,11 @@ import {
 } from "src/screens/maps/containers";
 
 /**
- * 
+ *
  * @name MapsIndexScreen
  * @desc Component rendered for on the index screen.
- * @param {any} props 
- * @returns {func} React Component 
+ * @param {any} props
+ * @returns {func} React Component
  */
 export const MapsIndexScreen = props => {
   const navigator = setNavigatorProp(props.componentId);
@@ -23,7 +23,7 @@ export const MapsIndexScreen = props => {
     address: "Fetching your location ...",
     latLng: "",
     processing: false,
-    errors: false,
+    errors: false
   };
 
   const [state, setState] = useState(initialState);
@@ -45,13 +45,25 @@ export const MapsIndexScreen = props => {
     });
   };
 
+  const handleMapInteraction = region => {
+    setState({ ...state, processing: true });
+  };
+
   return (
     <View style={{ flex: 1, position: "relative" }}>
       <MapContainer
         region={state.region}
         indicateProcess={() => setState({ ...state, processing: true })}
         handleAddressChange={handleAddressChange}
-        handleErrorCallback={(err) => setState({ ...state, errors: true, address: err.message })}
+        handleMapInteraction={handleMapInteraction}
+        handleErrorCallback={err =>
+          setState({
+            ...state,
+            errors: true,
+            address: err.message,
+            processing: false
+          })
+        }
       />
       <ResultsContextContainer
         processing={state.processing}
@@ -60,9 +72,11 @@ export const MapsIndexScreen = props => {
         address={state.address}
         location={state.latLng}
       />
-      <SearchContainer 
+      <SearchContainer
         handleAddressChange={handleAddressChange}
-        handleErrorCallback={(err) => setState({ ...state, errors: true, address: err.message })}
+        handleErrorCallback={err =>
+          setState({ ...state, errors: true, address: err.message })
+        }
       />
     </View>
   );

@@ -24,6 +24,7 @@ const Map = props => {
       showsUserLocation
       onPress={(e) => handleLocationChange(e.nativeEvent.coordinate)}
       onRegionChangeComplete={handleLocationChange}
+
     />
   );
 };

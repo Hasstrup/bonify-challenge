@@ -2,9 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import ResultsContextView from "../components/ResultsContext/";
 import {
-  DATA_FETCHING,
   VIDEO_RESULTS_FETCHED,
-  QUASI_BLACK,
   NEW_USER_CONTEXT,
   UNRESOLVED_COORDINATES_CONTEXT
 } from "src/Constants";
@@ -40,6 +38,7 @@ const ResultsContextContainer = props => {
     <ResultsContextView
       currentUIContext={VIDEO_RESULTS_FETCHED}
       address={props.address}
+      processing={props.processing}
       handleButtonPress={handleNavigation}
     />
   );
