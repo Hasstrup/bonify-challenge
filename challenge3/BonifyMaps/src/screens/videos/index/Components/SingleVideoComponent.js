@@ -38,17 +38,13 @@ export const SingleVideoComponent = ({ item, handlePress }) => {
           style={styles.imageContent}
         />
       </View>
-      <LinearGradient
+      <View
         style={styles.gradientContainer}
-        colors={GRADIENT_COLORS}
-        start={{ x: 1, y: 0 }}
-        end={{ x: 1, y: 1 }}
-        locations={[0.8, 0.2, 0.2]}
       >
         <Text style={styles.videoTitle}>{node.title}</Text>
         <Text style={styles.creator}>{node.creator}</Text>
         <Text style={styles.description}>{node.description}</Text>
-      </LinearGradient>
+      </View>
     </TouchableOpacity>
   );
 };

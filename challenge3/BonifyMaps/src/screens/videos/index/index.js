@@ -16,9 +16,6 @@ export const VideosIndexScreen = props => {
   const navigationOptions = {
     topBar: {
       visible: false
-    },
-    statusBar: {
-      style: "light"
     }
   };
 

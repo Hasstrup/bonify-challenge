@@ -21,17 +21,17 @@ const VideoListContainer = props => {
   const { location, navigator } = props;
   const intitialState = {
     fetching: false,
-    videos: [1, 2, 3, 4, 5, 6, 7],
+    videos: [1,2,3,4],
     errors: false
   };
 
   const [state, setState] = useState(intitialState);
 
-  // get the videos from the first page on mount and clean up after unmount
-  // useEffect(() => {
-  //   // getVideosFromYoutube();
-  //   return resetState;
-  // }, []);
+  //get the videos from the first page on mount and clean up after unmount
+  useEffect(() => {
+    // getVideosFromYoutube();
+    return resetState;
+  }, []);
 
   /**
    * @name getVideosFormYoutube

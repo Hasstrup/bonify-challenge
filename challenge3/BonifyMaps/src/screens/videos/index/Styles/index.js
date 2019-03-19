@@ -11,16 +11,16 @@ export const SingleVideoComponentStyle = {
   topContainer: {
     flex: 1,
     flexBasis: "15%",
-    height: DEVICE_HEIGHT / 4,
+    height: DEVICE_HEIGHT / 2.5,
     position: "relative",
-    borderWidth: 1,
-    borderRadius: 2,
+    justifyContent: "space-around",
     marginBottom: (DEVICE_HEIGHT * 0.1) / 6
   },
 
   imageContainer: {
     flex: 1,
-    flexBasis: "100%"
+    flexBasis: "65%",
+    marginBottom: 40
   },
 
   imageContent: {
@@ -32,11 +32,7 @@ export const SingleVideoComponentStyle = {
   gradientContainer: {
     flex: 1,
     width: "100%",
-    flexBasis: "45%",
-    position: "absolute",
-    bottom: 0,
-    justifyContent: "flex-end",
-    paddingLeft: 10,
+    flexBasis: "35%",
     paddingRight: 10,
     paddingBottom: 5
   },
@@ -50,19 +46,19 @@ export const SingleVideoComponentStyle = {
     fontSize: 18,
     width: "80%",
     fontWeight: "700",
-    color: "white",
+    color: BLACK,
     marginBottom: 5
   },
 
   creator: {
     fontSize: 15,
-    color: GRAY_COLOR,
+    color: QUASI_BLACK,
     marginBottom: 6
   },
 
   description: {
     fontSize: 13.3,
-    color: "#A6ACAF",
+    color: DARKER_GRAY,
     width: "95%"
   }
 };
@@ -75,8 +71,7 @@ export const VideoListContainerStyle = {
 
   flatListContainer: {
     flex: 1,
-    position: "relative",
-    backgroundColor: QUASI_BLACK
+    position: "relative"
   },
 
   screenTitle: {
@@ -112,7 +107,6 @@ export const VideoScreenStyle = {
   topContainer: {
     ...StyleSheet.absoluteFillObject,
     justifyContent: "space-around",
-    backgroundColor: QUASI_BLACK,
     paddingRight: "5%",
     paddingLeft: "5%"
   }
@@ -132,8 +126,8 @@ export const CustomNavigatorStyle = {
   },
 
   headerText: {
-    fontSize: 18,
-    color: "white",
+    fontSize: 28,
+    color: BLACK,
     fontWeight: "700",
     marginBottom: 40,
     justifySelf: 'center',
