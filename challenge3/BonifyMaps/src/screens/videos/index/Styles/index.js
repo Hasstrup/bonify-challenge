@@ -131,7 +131,6 @@ export const CustomNavigatorStyle = {
     color: BLACK,
     fontWeight: "700",
     marginBottom: 40,
-    justifySelf: "center",
     alignSelf: "center"
   }
 };

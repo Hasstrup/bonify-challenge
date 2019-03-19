@@ -32,8 +32,7 @@ export const VideosIndexScreen = props => {
 };
 
 VideosIndexScreen.propTypes = {
-  location: PropTypes.string.isRequired,
-  navigator: PropTypes.func.isRequired4
+  location: PropTypes.string.isRequired
 };
 
 VideosIndexScreen.options = () => ({});

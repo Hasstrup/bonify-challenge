@@ -2,8 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { TouchableOpacity, Text, Image, View } from "react-native";
 import { SingleVideoComponentStyle as styles } from "../Styles";
-import { VideoOverlay } from './OverLayComponent'
-
+import { VideoOverlay } from "./OverLayComponent";
 
 const DummyYoutubeData = {
   backdropImage:
@@ -27,7 +26,7 @@ export const SingleVideoComponent = ({ item, handlePress }) => {
   return (
     <TouchableOpacity
       onPress={() => {
-        handlePress(item.id);
+        handlePress(node.id);
       }}
       style={styles.topContainer}
     >
@@ -37,10 +36,8 @@ export const SingleVideoComponent = ({ item, handlePress }) => {
           style={styles.imageContent}
         />
       </View>
-      <VideoOverlay />
-      <View
-        style={styles.gradientContainer}
-      >
+      <VideoOverlay handlePress={() => handlePress(node.id)} />
+      <View style={styles.gradientContainer}>
         <Text style={styles.videoTitle}>{node.title}</Text>
         <Text style={styles.creator}>{node.creator}</Text>
         <Text style={styles.description}>{node.description}</Text>

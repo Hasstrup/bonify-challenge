@@ -2,7 +2,7 @@ import React from "react";
 import { View, StyleSheet } from "react-native";
 import Youtube from "react-native-youtube";
 import PropTypes from "prop-types";
-import { YOUTUBE_API_KEY } from "scr/Constants";
+import { YOUTUBE_API_KEY, DEVICE_HEIGHT } from "src/Constants";
 
 /**
  *
@@ -20,12 +20,18 @@ export const YoutubePlayerContainer = props => {
    */
   const returnToVideosIndexPage = () => props.navigator.pop();
   return (
-    <View style={{ ...StyleSheet.absoluteFillObject }}>
+    <View style={{ ...StyleSheet.absoluteFillObject, flex: 1, backgroundColor: 'black' }}>
       <Youtube
         apiKey={YOUTUBE_API_KEY}
         fullScreen={true}
-        videoID={props.videoId}
+        videoId={props.videoId}
         onChangeFullScreen={returnToVideosIndexPage}
+        onError={returnToVideosIndexPage}
+        style={{
+          alignSelf: "stretch",
+          height: DEVICE_HEIGHT,
+          backgroundColor: "black"
+        }}
       />
     </View>
   );

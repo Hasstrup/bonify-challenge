@@ -85,7 +85,14 @@ const VideoListContainer = props => {
     // try to open the youtube app, if not, use
     // react-native-youtube or webview maybe?
     const url = `https://www.youtube.com/watch?v=${videoId}`;
-    console.log(url)
+    return navigator.push({
+      component: {
+        name: "VideosShowScreen",
+        passProps: {
+          videoId
+        }
+      }
+    });
     Linking.canOpenURL(url).then(deviceCanOpen => {
       if (deviceCanOpen) {
         Linking.openURL(url);
