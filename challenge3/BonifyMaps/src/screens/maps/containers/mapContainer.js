@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { Platform } from 'react-native';
 import PropTypes from "prop-types";
 import Map from "../components/Map/Map";
 import * as MapActions from "src/Actions";
@@ -28,7 +29,8 @@ const MapContainer = props => {
    * @param {any} coords coords containing latitude and longitude
    */
   onLocationEventChange = coords => {
-    indicateProcess();
+    // weird glitch on the android smh
+    Platform.OS === 'ios' && indicateProcess();
     MapActions.handleLocationChange(
       coords,
       handleAddressChange,
