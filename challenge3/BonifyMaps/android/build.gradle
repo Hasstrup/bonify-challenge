@@ -2,11 +2,13 @@
 
 buildscript {
     ext {
-        buildToolsVersion = "27.0.3"
+        buildToolsVersion = "28.0.3"
         minSdkVersion = 19
         compileSdkVersion = 28
-        targetSdkVersion = 28
+        targetSdkVersion = 27
         supportLibVersion = "28.0.0"
+        googlePlayServicesVersion = "15.0.1"
+        androidMapsUtilsVersion = "0.5+"
     }
     repositories {
         google()
@@ -18,6 +20,7 @@ buildscript {
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+        classpath 'com.google.gms:google-services:4.2.0'
     }
 }
 
@@ -49,3 +52,4 @@ subprojects { subproject ->
         }
     }
 }
+
