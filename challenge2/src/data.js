@@ -125,8 +125,4 @@ const expectedFormValues = {
     oldAgePension: 1234 
   };
 
-  module.exports = {
-      source: applicationData,
-      expected: expectedFormValues
-
-  }
+  export default { source: applicationData, target: expectedFormValues }

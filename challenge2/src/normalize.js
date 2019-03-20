@@ -1,9 +1,9 @@
-const data = require("./data.js");
+import data from './data'
 
 const normalize = (input, key) => {
   validateInput(input);
   return Object.keys(input).reduce((resultingObject, currentKey) => {
-    resultingObject[currentKey] = normalizeKeyFromInput(input[currentKey], key);
+    resultingObject[currentKey] = normalizeValuesFromInput(input[currentKey], key);
     return resultingObject;
   }, {});
 };
@@ -16,20 +16,19 @@ const validateInput = input => {
   }
 };
 
-const normalizeKeyFromInput = (args, key) => {
+const normalizeValuesFromInput = (args, key) => {
   if (args.constructor !== Object) return null;
   const target = args[key];
-  const processArrayValue = () => {
-    return target.map(node => {
-      return Object.keys(node).reduce((result, currentKey) => {
-        result[currentKey] = normalizeKeyFromInput(node[currentKey], key);
+  const processArrayValue = () =>
+    target.map(node =>
+      Object.keys(node).reduce((result, currentKey) => {
+        result[currentKey] = normalizeValuesFromInput(node[currentKey], key);
         return result;
-      }, {});
-    });
-  };
+      }, {})
+    );
   return Array.isArray(target) ? processArrayValue() : target;
 };
 
-const KEY = "value";
+const NORMALIZING_KEY = "value";
 
-console.log(normalize(data.source, KEY));
+console.log(normalize(data.source, NORMALIZING_KEY));

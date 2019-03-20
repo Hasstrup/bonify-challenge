@@ -4,8 +4,16 @@
   "description": "Algorithm tests for challenge 2",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha  --timeout 15000 --compilers js:babel-core/register ./tests/ --recursive --exit",
+    "normalize": "babel-node src/normalize.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "chai": "^4.2.0",
+    "mocha": "^6.0.2"
+  }
 }
