@@ -1,6 +1,6 @@
 import data from './data'
 
-const normalize = (input, key) => {
+export const normalize = (input, key) => {
   validateInput(input);
   return Object.keys(input).reduce((resultingObject, currentKey) => {
     resultingObject[currentKey] = normalizeValuesFromInput(input[currentKey], key);
@@ -8,7 +8,7 @@ const normalize = (input, key) => {
   }, {});
 };
 
-const validateInput = input => {
+export const validateInput = input => {
   if (typeof input !== "object" || !Object.values(input).length) {
     throw new Error(
       "Please provide a valid input, should be an object with some input"
@@ -16,7 +16,7 @@ const validateInput = input => {
   }
 };
 
-const normalizeValuesFromInput = (args, key) => {
+export const normalizeValuesFromInput = (args, key) => {
   if (args.constructor !== Object) return null;
   const target = args[key];
   const processArrayValue = () =>
@@ -31,4 +31,3 @@ const normalizeValuesFromInput = (args, key) => {
 
 const NORMALIZING_KEY = "value";
 
-console.log(normalize(data.source, NORMALIZING_KEY));

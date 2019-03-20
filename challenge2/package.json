@@ -4,7 +4,7 @@
   "description": "Algorithm tests for challenge 2",
   "main": "index.js",
   "scripts": {
-    "test": "mocha  --timeout 15000 --compilers js:babel-core/register ./tests/ --recursive --exit",
+    "test": "mocha  --timeout 15000 --require babel-core/register ./tests/ --recursive --exit",
     "normalize": "babel-node src/normalize.js"
   },
   "author": "",
@@ -14,6 +14,7 @@
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
     "chai": "^4.2.0",
+    "expect": "^24.5.0",
     "mocha": "^6.0.2"
   }
 }
