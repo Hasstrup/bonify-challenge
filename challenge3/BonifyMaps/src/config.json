@@ -1,5 +1,5 @@
 {
-    "playVideosInApp": false,
+    "playVideosInApp": true,
     "videosOrderKey": "relevance",
     "videosLocationRadius": "5km"
 }

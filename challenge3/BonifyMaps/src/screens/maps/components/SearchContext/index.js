@@ -19,6 +19,7 @@ const SearchContextView = props => {
       <TextInput
         style={styles.TextInputStyle}
         onChangeText={onTextInputChange}
+        onSubmitEditing={onButtonPress}
         placeholder={"Enter an address and tap the search button :)"}
       />
       <TouchableOpacity

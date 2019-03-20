@@ -1,7 +1,7 @@
 import { GRAY_COLOR, BLACK } from 'src/Constants'
 
 export const SearchContainerStyle = {
-    height: '5%',
+    height: 45,
     position: 'absolute',
     width: '90%',
     backgroundColor: 'white',

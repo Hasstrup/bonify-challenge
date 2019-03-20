@@ -19,7 +19,12 @@ export const MapsIndexScreen = props => {
   const navigator = setNavigatorProp(props.componentId);
 
   const initialState = {
-    region: {},
+    region: {
+      latitude: 37.78825,
+      longitude: -122.4324,
+      latitudeDelta: 0.0922,
+      longitudeDelta: 0.0421
+    },
     address: "Fetching your location ...",
     latLng: "",
     processing: false,

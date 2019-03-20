@@ -21,7 +21,7 @@ const VideoListContainer = props => {
   const { location, navigator, address } = props;
   const initialState = {
     fetching: false,
-    videos: [],
+    videos: [1,2],
     errors: false,
     validScroll: false
   };
@@ -29,7 +29,7 @@ const VideoListContainer = props => {
   const [state, setState] = useState(initialState);
 
   useEffect(() => {
-    getVideosFromYoutube();
+    //getVideosFromYoutube();
     return resetState;
   }, []);
 
@@ -119,8 +119,8 @@ const VideoListContainer = props => {
    */
   const fetchMoreVideosFromYoutube = () => {
     if (state.validScroll) {
-      setState({ ...state, fetching: true });
-      getVideosFromYoutube()
+      //setState({ ...state, fetching: true });
+      //getVideosFromYoutube()
     }
   };
 

@@ -15,7 +15,7 @@ export const SingleVideoComponentStyle = {
     height: DEVICE_HEIGHT / 2.5,
     position: "relative",
     justifyContent: "space-around",
-    marginBottom: (DEVICE_HEIGHT * 0.1) / 2.5,
+    marginBottom: 60,
   },
 
   imageContainer: {
