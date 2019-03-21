@@ -1,18 +1,19 @@
 import moxios from "moxios";
 import { stub, spy } from "sinon";
-import MapActions from "src/Actions/MapActions";
+import * as MapActions from "src/Actions/MapActions";
+import GoogleMapData from "../../../__mocks__/googleData";
+
 
 const geolocationStub = stub(navigator.geolocation, "getCurrentPosition");
 const regionStub = stub(MapActions, "regionFromLatLong");
 
-
 const mockCoords = {
-    coords: {
-      latitude: 0.01,
-      longitude: 0.02,
-      accuracy: 10
-    }
-  };
+  coords: {
+    latitude: 0.01,
+    longitude: 0.02,
+    accuracy: 10
+  }
+};
 
 describe("Map Actions", () => {
   beforeEach(() => moxios.install());
@@ -24,7 +25,6 @@ describe("Map Actions", () => {
 
   describe("fetchUsersCurrentLocation", () => {
     afterAll(() => {
-      geolocationStub.restore();
       regionStub.restore();
     });
 
@@ -48,9 +48,41 @@ describe("Map Actions", () => {
     });
   });
 
-  describe('getUsersLocation', () => {
-      it('gets the users location and calls the callback with the coordinates', () => {
-        const updateSpy = spy()
-      })
-  })
+  describe("getUsersLocation", () => {
+    beforeAll(() => {
+      geolocationStub.callsFake(callback => {
+        callback(mockCoords);
+      });
+    });
+    it("gets the users location and calls the callback with the coordinates", async () => {
+      const updateSpy = spy();
+      await MapActions.getUsersLocation(updateSpy);
+      expect(updateSpy.called).toBe(true);
+    });
+  });
+
+  describe("handleLocationChange", () => {
+    it("calls the success callback after successful retrieval of the data", async () => {
+      const successSpy = spy();
+      await MapActions.handleLocationChange(mockCoords, successSpy, () => {});
+      moxios.wait(() => {
+        const request = moxios.requests.mostRecent();
+        request.respondWith({ status: 200, response: { data: GoogleMapData } });
+      });
+      expect(successSpy.called).toBe(true);
+      const {
+        results: [desired]
+      } = GoogleMapData;
+      const result = {
+        address: desired.formatted_address,
+        latLng: `${desired.lat},${desired.lng}`,
+        region: MapActions.regionFromLatLong({
+          latitude: desired.lat,
+          longitude: desired.lng,
+          accuracy: 120
+        })
+      };
+      expect(successSpy.calledWith(result)).toBe(true);
+    });
+  });
 });

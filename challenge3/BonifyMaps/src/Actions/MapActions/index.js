@@ -1,5 +1,6 @@
 import * as MapServices from "src/services/GoogleMapService";
 
+
 /**
  *
  * @name fetchUsersCurrentLocation
@@ -58,8 +59,8 @@ export const regionFromLatLong = (
  * @param {any} updateState
  */
 export const getUsersLocation = async updateState => {
-  const coords = await fetchUsersCurrentLocation();
-  updateState(coords);
+    const coords = await fetchUsersCurrentLocation();
+    return updateState(coords);
 };
 
 /**
@@ -77,23 +78,22 @@ export const handleLocationChange = async (
 ) => {
   try {
     const latLng = `${coords.latitude},${coords.longitude}`;
-    successCallback(await MapServices.AddressFromCoordinates(latLng));
+    return successCallback(await MapServices.AddressFromCoordinates(latLng));
   } catch (err) {
     errorCallback(err);
   }
 };
 
-export const handleAddressChange = async (searchText, successCallback, errorCallback) => {
+export const handleAddressChange = async (
+  searchText,
+  successCallback,
+  errorCallback
+) => {
   try {
-    successCallback(await MapServices.CoordinatesFromAddress(searchText))
-  } catch(err) {
+    return successCallback(
+      await MapServices.CoordinatesFromAddress(searchText)
+    );
+  } catch (err) {
     errorCallback(err);
   }
-}
-
-export default {
-  handleAddressChange,
-  fetchUsersCurrentLocation,
-  regionFromLatLong,
-  getUsersLocation
-}
+};
