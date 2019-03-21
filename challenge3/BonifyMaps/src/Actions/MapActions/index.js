@@ -1,4 +1,5 @@
 import * as MapServices from "src/services/GoogleMapService";
+
 /**
  *
  * @name fetchUsersCurrentLocation
@@ -88,4 +89,11 @@ export const handleAddressChange = async (searchText, successCallback, errorCall
   } catch(err) {
     errorCallback(err);
   }
+}
+
+export default {
+  handleAddressChange,
+  fetchUsersCurrentLocation,
+  regionFromLatLong,
+  getUsersLocation
 }

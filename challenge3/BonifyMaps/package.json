@@ -18,6 +18,7 @@
     "jest-enzyme": "^7.0.2",
     "jsdom": "^14.0.0",
     "moment": "^2.24.0",
+    "moxios": "^0.4.0",
     "prop-types": "^15.7.2",
     "qs": "^6.6.0",
     "react": "16.8.3",
@@ -46,7 +47,9 @@
       "enzyme-to-json/serializer"
     ],
     "setupFilesAfterEnv": [
-      "<rootDir>setUpTests.js", "<rootDir>setup-tests.js", "<rootDir>__mocks__/index.js"
+      "<rootDir>setUpTests.js",
+      "<rootDir>setup-tests.js",
+      "<rootDir>__mocks__/index.js"
     ]
   }
 }

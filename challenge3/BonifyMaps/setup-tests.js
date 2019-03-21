@@ -9,7 +9,10 @@ const { document } = new JSDOM(``, {
 global.document = document;
 global.window = document.defaultView;
 global.navigator = {
-  userAgent: "node.js"
+  userAgent: "node.js",
+  geolocation: {
+      getCurrentPosition: () => {}
+  }
 };
 
 Object.keys(document.defaultView).forEach(property => {
