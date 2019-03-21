@@ -46,7 +46,7 @@
       "enzyme-to-json/serializer"
     ],
     "setupFilesAfterEnv": [
-      "<rootDir>setUpTests.js", "<rootDir>setup-tests.js"
+      "<rootDir>setUpTests.js", "<rootDir>setup-tests.js", "<rootDir>__mocks__/index.js"
     ]
   }
 }

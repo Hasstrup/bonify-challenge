@@ -34,8 +34,9 @@ describe("Maps Index screen", () => {
   });
 
   describe("Behaviour", () => {
-    it('mounts', () => {
-        const wrapper = mount(<MapsIndexScreen />)
-    })
+    it("mounts", () => {
+      const wrapper = mount(<MapsIndexScreen />);
+      expect(wrapper.find('TextInput')).toExist();
+    });
   });
 });
