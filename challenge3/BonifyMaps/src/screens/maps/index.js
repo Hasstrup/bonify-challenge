@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { View } from "react-native";
+import PropTypes from 'prop-types';
 import { setNavigatorProp } from "src/navigation/actions";
 import * as MapActions from "src/Actions";
 import {
@@ -102,3 +103,7 @@ MapsIndexScreen.options = () => ({
     drawBehind: true
   }
 });
+
+MapsIndexScreen.propTypes = {
+  componentId: PropTypes.string
+}

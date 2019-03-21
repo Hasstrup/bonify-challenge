@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Maps Index screen renders correctly and matches snapshot 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+      "position": "relative",
+    }
+  }
+>
+  <MapContainer
+    handleAddressChange={[Function]}
+    handleErrorCallback={[Function]}
+    handleMapInteraction={[Function]}
+    indicateProcess={[Function]}
+    region={
+      Object {
+        "latitude": 37.78825,
+        "latitudeDelta": 0.0922,
+        "longitude": -122.4324,
+        "longitudeDelta": 0.0421,
+      }
+    }
+  />
+  <ResultsContextContainer
+    address="Fetching your location ..."
+    errors={false}
+    location=""
+    navigator={
+      Object {
+        "pop": [Function],
+        "push": [Function],
+      }
+    }
+    processing={false}
+  />
+  <SearchContainer
+    handleAddressChange={[Function]}
+    handleErrorCallback={[Function]}
+  />
+</View>
+`;
+
+exports[`Maps Index screen renders correctly and matches snapshot 2`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+      "position": "relative",
+    }
+  }
+>
+  <MapContainer
+    handleAddressChange={[Function]}
+    handleErrorCallback={[Function]}
+    handleMapInteraction={[Function]}
+    indicateProcess={[Function]}
+    region={
+      Object {
+        "latitude": 37.78825,
+        "latitudeDelta": 0.0922,
+        "longitude": -122.4324,
+        "longitudeDelta": 0.0421,
+      }
+    }
+  />
+  <ResultsContextContainer
+    address="Fetching your location ..."
+    errors={false}
+    location=""
+    navigator={
+      Object {
+        "pop": [Function],
+        "push": [Function],
+      }
+    }
+    processing={false}
+  />
+  <SearchContainer
+    handleAddressChange={[Function]}
+    handleErrorCallback={[Function]}
+  />
+</View>
+`;
