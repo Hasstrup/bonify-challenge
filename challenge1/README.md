@@ -21,29 +21,40 @@ Ideally, React Native exposes sufficient enough APIs to make sure our we rarely 
 
 ### Types of Native Modules
 
-- ** API MODULES **
+- **API MODULES**
   API modules expose bindings for native methods to be called from JavaScript. When using a native method from JavaScript, any values passed will be marshalled on the JavaScript side and unmarshalled on the native side. 
 
-- ** UI Component MODULES **
+- **UI Component MODULES**
 UI Component modules expose new React components that we can use in our javascript code. 
 
 #### Advantages of Native Modules over React Native Implementations
 
-- ** Extending the functionality of the application: ** 
-   Sometimes while trying to implement certain features in your application, and react native doesn't expose such APIs (Like the Apple Payment API). There are many objective c Libraries that implement this and you could create a Native Module to bridge that functionality with your React Native code. 
+- **Extending the functionality of the application:** 
+   Sometimes while trying to implement certain features in your application, and react native doesn't expose such APIs (Like the Apple Payment API). There are many objective c Libraries that implement this and you could create a Native Module to bridge that functionality with your React Native code. For example: implementing Augmented Reality in a React native application can only be done by building a native module.
 
-- ** Performance & Animation: ** 
+- **Performance & Animation:** 
    Native modules are incredible with speed and performance, mostly because they can access and consume the device's multithreaded APIs. 
 
-- ** Reusability: ** 
+- **Reusability:** 
    The Native modules that are built by an engineering team are usually core to the business of the organization. This instills a high reuse value as the code and logc can be shared across multiple applications. 
 
-- ** Look & Feel: **
+- **Look & Feel:**
    Certain gestures and appearance effects (especially animations & navigation) can only be implemented by Platform specific code. Native modules build the gap between these and our react native appliction. 
 
-- ** SECURITY: **
+- **SECURITY:**
   React Native is currently open source and this leaves a gap for your really sensitive data to be harnessed by an unwanted user (even though this is unlikely). The chance of this happening is worth considering. Platform specific code hides implementation details from unwanted users and thereby provide a way more secure way of storing sensitive data. 
 
 
 #### Disadvantages of Native Modules over Pure React Native Implementations
+
+- **Defeats the entire purpose of React Native:**
+   React Native provides simple cross platform compatible APIs and abstracts all the device specific APIS to allow use consume them uniformly. Creating native modules 
+   (which would then have to be implemented across platforms) defeats that. 
+
+- **Significantly more expensive:** 
+    Platform languages like Java, Swift and Objective C are esoteric languages, Teams would have to hire more platform-specific engineers to maintain and extend the Platform side of a native module. More money. 
+
+- **Maintainance and Scalability:**
+    Native modules will ideally be implemented in two different languages, as the needs of the application grow, it would take more time to maintain these native modules, since you would have to maintain them independently.
+
 
