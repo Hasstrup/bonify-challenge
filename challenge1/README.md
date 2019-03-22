@@ -1,10 +1,10 @@
 ### Understanding Native Modules
-Native modules are the define bridges between our Javascript code and the platform specific code. React Native is javascript but needs to be transformed into the device specific language for the device to understand it. 
+Native modules define bridges between our Javascript code and the platform specific code. React Native is javascript but needs to be transformed into the device specific language for the device to understand it and run it. 
 
 Native modules expose bindings that can be consumed by our javascript code. Native modules extend the usability, sometimes performance and device-level access that React-native provides us outn of the box. 
 
 ```
-Ideally, React Native exposes sufficient enough APIs to make sure our we rarely have to write Native code, but the needs of our application differ and can require more from the devices, we use native modules to extend what we can do with the device (through react native).
+Ideally, React Native exposes sufficient enough APIs to make sure our we rarely have to &nbsp; write Native code, but the needs of our application differ and can require more  &nbsp; from the devices, we use native modules to extend what we can do with the device (through react native).
 
 ```
 
@@ -18,4 +18,5 @@ Ideally, React Native exposes sufficient enough APIs to make sure our we rarely 
 * high-performance views when running into performance issues with React Native views
 
 ### Types of Native Modules
+
 #### Advantages of 
