@@ -155,9 +155,9 @@ const VideoListContainer = props => {
 
 VideoListContainer.propTypes = {
   videos: PropTypes.array,
-  location: PropTypes.string.isRequired,
-  address: PropTypes.string.isRequired,
-  navigator: PropTypes.func.isRequired
+  location: PropTypes.string,
+  address: PropTypes.string,
+  navigator: PropTypes.object
 };
 
 VideoListContainer.defaultProps = {

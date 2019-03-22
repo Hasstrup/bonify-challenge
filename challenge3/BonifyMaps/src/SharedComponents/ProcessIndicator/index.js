@@ -1,6 +1,5 @@
 import React from "react";
 import { View, ActivityIndicator } from "react-native";
-import { WaveIndicator } from "react-native-indicators";
 import { BLACK } from "src/Constants";
 import PropTypes from "prop-types";
 import defaultStyles from "./styles";
@@ -40,7 +39,7 @@ export const WithProcessIndicator = ({
 );
 
 WithProcessIndicator.propTypes = {
-  children: PropTypes.array.isRequired,
+  children: PropTypes.object.isRequired,
   processing: PropTypes.bool.isRequired,
   style: PropTypes.object
 };

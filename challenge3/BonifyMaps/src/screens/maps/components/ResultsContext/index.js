@@ -9,7 +9,7 @@ import {
 } from "src/Constants";
 import * as styles from "./Styles";
 import VideoPreviewContext from "./Contexts/VideoPreviewContext";
-import NewUserContext from "./Contexts/NewUserContext";
+
 
 /**
  *
@@ -30,9 +30,7 @@ const ResultsContextView = props => {
             handleButtonPress={handleButtonPress}
             processing={processing}
           />
-        );
-      case NEW_USER_CONTEXT:
-        return <NewUserContext />;
+        ); // had a bunch of options I was going to show hence the switch
       default:
         return null;
     }

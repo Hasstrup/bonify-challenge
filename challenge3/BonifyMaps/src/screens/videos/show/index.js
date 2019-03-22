@@ -23,5 +23,5 @@ export const VideosShowScreen = props => {
 };
 
 VideosShowScreen.propTypes = {
-  videoId: PropTypes.string.isRequired
+  videoId: PropTypes.string
 };

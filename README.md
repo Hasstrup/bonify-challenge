@@ -71,6 +71,8 @@ It is expected that at this step, you might have cloned the repository already, 
 
   ```
 
+ PS: The intinite scroll (challenge 4) is implemented, please look out for that :)
+
  #### Mobile tests
  The tests for the react native application are being implemented in this [PR](https://github.com/Hasstrup/bonify-challenge/pull/1)
 

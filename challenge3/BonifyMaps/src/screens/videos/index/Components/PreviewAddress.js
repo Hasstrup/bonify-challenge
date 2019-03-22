@@ -23,9 +23,9 @@ export const PreviewAddress = props => (
 );
 
 PreviewAddress.propTypes = {
-  address: PropTypes.string.isRequired,
+  address: PropTypes.string,
   address: PropTypes.string,
   total: PropTypes.number,
-  count: PropTypes.count,
+  count: PropTypes.number,
   processing: PropTypes.bool
 };

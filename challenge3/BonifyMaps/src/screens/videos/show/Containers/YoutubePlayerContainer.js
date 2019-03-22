@@ -53,6 +53,6 @@ export const YoutubePlayerContainer = props => {
 };
 
 YoutubePlayerContainer.propTypes = {
-  videoId: PropTypes.string.isRequired,
-  navigator: PropTypes.func.isRequired
+  videoId: PropTypes.string,
+  navigator: PropTypes.object
 };
