@@ -32,13 +32,15 @@ It is expected that at this step, you might have cloned the repository already, 
 
     ```
 
-- **Link Libraries:**
-    After a successful install, Link the libraries by running
+- **Install CocoaPods and pods:**
+    After a successful install, Install the following pods by running
    
     ```
-     react-native link
+     cd ios
+     pod install
 
     ```
+    // Note that this was bundled with cocoapods 1.6.1 so you might have to update yours :)
 
 - **Get a a Google Maps API Key & Youtube Key:**
    If you need the search location feature to work, you'll be needing the google maps api key and the youtube api key. I'll be emailing a private note with mine, so you can use it to view the project. When you have gotten the keys replace them by 
