@@ -1,4 +1,4 @@
-import MapContainer from './MapContainer';
+import MapContainer from './MapContextContainer';
 import ResultsContextContainer from './ResultsContextContainer'
 import SearchContainer  from './SearchContainer'
 export {

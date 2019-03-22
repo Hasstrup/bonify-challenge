@@ -1,4 +1,4 @@
-import { BLACK, GRAY_COLOR, DARKER_GRAY } from 'src/Constants'
+import { BLACK, GRAY_COLOR, DARKER_GRAY } from 'src/constants'
 
 
 export const VideoPreviewStyle = {

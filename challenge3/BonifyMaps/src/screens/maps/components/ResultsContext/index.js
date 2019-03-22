@@ -6,7 +6,7 @@ import {
   VIDEO_RESULTS_FETCHED,
   NEW_USER_CONTEXT,
   UNRESOLVED_COORDINATES_CONTEXT
-} from "src/Constants";
+} from "src/constants";
 import * as styles from "./Styles";
 import VideoPreviewContext from "./Contexts/VideoPreviewContext";
 

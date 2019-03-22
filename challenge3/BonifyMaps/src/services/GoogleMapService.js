@@ -4,7 +4,7 @@ import {
   INVALID_INPUT_MESSAGE,
   COORDS_RETRIEVE_FAILURE_MESSAGE,
   GOOGLE_MAPS_API_KEY as API_KEY
-} from "src/Constants";
+} from "src/constants";
 import { regionFromLatLong } from "src/Actions/MapActions";
 
 /**

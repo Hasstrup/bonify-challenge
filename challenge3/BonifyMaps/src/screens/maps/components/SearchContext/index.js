@@ -2,7 +2,7 @@ import React from "react";
 import { View, TextInput, TouchableOpacity } from "react-native";
 import PropTypes from "prop-types";
 import Icon from "react-native-vector-icons/MaterialIcons";
-import { DARKER_GRAY } from "src/Constants";
+import { DARKER_GRAY } from "src/constants";
 import * as styles from "./Styles";
 
 /**

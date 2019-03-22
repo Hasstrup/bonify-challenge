@@ -2,7 +2,7 @@ import React from "react";
 import { View, StyleSheet, TouchableOpacity, Text } from "react-native";
 import Youtube from "react-native-youtube";
 import PropTypes from "prop-types";
-import { YOUTUBE_API_KEY, DEVICE_HEIGHT } from "src/Constants";
+import { YOUTUBE_API_KEY, DEVICE_HEIGHT } from "src/constants";
 import { YoutubePlayerContainerStyle as styles } from '../Styles'
 
 /**

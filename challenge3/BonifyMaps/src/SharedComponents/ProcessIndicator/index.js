@@ -1,6 +1,6 @@
 import React from "react";
 import { View, ActivityIndicator } from "react-native";
-import { BLACK } from "src/Constants";
+import { BLACK } from "src/constants";
 import PropTypes from "prop-types";
 import defaultStyles from "./styles";
 

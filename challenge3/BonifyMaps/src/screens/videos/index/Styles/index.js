@@ -6,7 +6,7 @@ import {
   DEVICE_HEIGHT,
   QUASI_BLACK,
   GRAY_COLOR
-} from "src/Constants";
+} from "src/constants";
 
 export const SingleVideoComponentStyle = {
   topContainer: {

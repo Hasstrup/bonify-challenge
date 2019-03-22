@@ -1,4 +1,4 @@
-import { GRAY_COLOR, BLACK } from 'src/Constants'
+import { GRAY_COLOR, BLACK } from 'src/constants'
 
 export const SearchContainerStyle = {
     height: 45,

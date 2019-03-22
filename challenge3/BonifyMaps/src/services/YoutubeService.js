@@ -6,7 +6,7 @@ import {
   YOUTUBE_SERVICE_URL,
   YOUTUBE_RETRIEVE_FAIL_MESSAGE,
   EMPTY_VIDEOS_LIST_MESSAGE
-} from "src/Constants";
+} from "src/constants";
 
 const MAX_RESULTS_PER_PAGE = 10;
 
