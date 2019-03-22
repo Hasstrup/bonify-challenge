@@ -32,12 +32,15 @@ It is expected that at this step, you might have cloned the repository already, 
 
     ```
 
-- **Link Libraries**
+- **Link Libraries:**
     After a successful install, Link the libraries by running
+   
+    ```
+     react-native link
 
-    ` react-native link`
+    ```
 
-- **Get a a Google Maps API Key & Youtube Key**
+- **Get a a Google Maps API Key & Youtube Key:**
    If you need the search location feature to work, you'll be needing the google maps api key and the youtube api key. I'll be emailing a private note with mine, so you can use it to view the project. When you have gotten the keys replace them by 
 
    ```
@@ -47,14 +50,14 @@ It is expected that at this step, you might have cloned the repository already, 
      export const GOOGLE_MAPS_API_KEY="Your google maps API KEY"
      export const YOUTUBE_API_KEY="Your youtube Api Key"
    ```
-  You should be set up now
+  You should be set up now. :)
 
-- **Android Caveat**: 
+- **Android Caveat** 
    Because of the issue referenced [here](https://github.com/react-native-community/react-native-maps/issues/2695), which is a result of two conflicting libraries (react-native-navigation && react-native-maps); You would need to modify the build gradle version for the react-native-maps package, to get the app to work on android. 
 
    ```
     cd node_modules/react-native-maps/lib/android/build.gradle
-    // add this line to the dependencies block 
+    // add this line to the END of the dependencies block 
     implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
   
    ```
@@ -68,5 +71,8 @@ It is expected that at this step, you might have cloned the repository already, 
 
   ```
 
-  Thank you; Please reach out if you have any hitches [here](mailto:hasstrup.ezekiel@gmail.com)
+ #### Mobile tests
+ The tests for the react native application are being implemented in this [PR](https://github.com/Hasstrup/bonify-challenge/pull/1)
 
+
+ Thank you; Please reach out if you have any hitches [here](mailto:hasstrup.ezekiel@gmail.com)
