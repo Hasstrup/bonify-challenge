@@ -10,19 +10,28 @@
   "dependencies": {
     "axios": "^0.18.0",
     "dotenv": "^7.0.0",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.11.2",
+    "enzyme-to-json": "^3.3.5",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
+    "jest-enzyme": "^7.0.2",
+    "jsdom": "^14.0.0",
     "moment": "^2.24.0",
+    "moxios": "^0.4.0",
     "prop-types": "^15.7.2",
     "qs": "^6.6.0",
     "react": "16.8.3",
+    "react-addons-test-utils": "^15.6.2",
+    "react-dom": "^16.8.4",
     "react-native": "0.59.1",
     "react-native-indicators": "^0.13.0",
     "react-native-linear-gradient": "^2.5.3",
     "react-native-maps": "^0.23.0",
     "react-native-navigation": "^2.13.1",
     "react-native-vector-icons": "^6.4.1",
-    "react-native-youtube": "^1.1.0"
+    "react-native-youtube": "^1.1.0",
+    "sinon": "^7.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",
@@ -33,6 +42,14 @@
     "react-test-renderer": "16.8.3"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>setUpTests.js",
+      "<rootDir>setup-tests.js",
+      "<rootDir>__mocks__/index.js"
+    ]
   }
 }
