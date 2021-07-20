@@ -24,7 +24,7 @@
     "react": "16.8.3",
     "react-addons-test-utils": "^15.6.2",
     "react-dom": "^16.8.4",
-    "react-native": "0.59.1",
+    "react-native": "0.62.3",
     "react-native-indicators": "^0.13.0",
     "react-native-linear-gradient": "^2.5.3",
     "react-native-maps": "^0.23.0",
